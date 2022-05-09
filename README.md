@@ -1,2 +1,2 @@
 # Gestionale
- 
+ grande giornata produttiva
