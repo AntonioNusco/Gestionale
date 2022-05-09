@@ -1,3 +1,3 @@
 # Gestionale
  
-ando vai minecraft pocket edition
+ando vai minecraft pocket edition rincoglionito di merda
