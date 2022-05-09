@@ -1,3 +1,3 @@
 # Gestionale
  
-ando
+ando vai
