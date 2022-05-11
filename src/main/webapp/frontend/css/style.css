@@ -27,7 +27,7 @@
 /* DARK THEME */
 
 .dark-theme-variables {
-    --color-background: #181a1e;
+    --color-background: #33353a;
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
@@ -388,7 +388,7 @@ main .recent-product a {
 
 .right .top {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     gap: 2rem;
 }
 
