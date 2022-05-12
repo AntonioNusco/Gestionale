@@ -67,4 +67,12 @@ CREATE TABLE IF NOT EXISTS "rescan" (
 );
 
 
+CREATE TABLE IF NOT EXISTS "utente" (
+  "idUtente" INT PRIMARY KEY,
+  "nome" TEXT NOT NULL,
+  "cognome" TEXT NOT NULL,
+  "password" TEXT NOT NULL,
+  "e-mail" TEXT NOT NULL,
+  "ruolo" BOOLEAN
+);
 
