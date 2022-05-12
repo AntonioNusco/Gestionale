@@ -37,3 +37,20 @@
     "devMethodology" TEXT,
     "provider" TEXT
 );
+
+
+CREATE TABLE IF NOT EXISTS "rescan" (
+    "idRescan" TEXT,
+    "nRescan" INT,
+    "ongoing" INT,
+    "archive" INT,
+    "RKD" DATE,
+    "AFPE" TEXT,
+    "newOB" INT,
+    "py" INT,
+    "ytd" INT,
+    "yoyRolling" TEXT,
+    "Last_Rescan" TEXT,
+    "FK_idApplicazione" INT,
+    "FK_idAppOwner" INT
+);
