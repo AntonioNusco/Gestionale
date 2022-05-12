@@ -4,5 +4,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AppOwner {
-	private String pippo;
+	private String topolino;
 }
