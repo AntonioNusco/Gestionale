@@ -1,4 +1,4 @@
-package model;
+package org.topnetwork.gestionale.model;
 
 public class Prova {
 	private String nome;
