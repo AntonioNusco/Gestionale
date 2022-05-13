@@ -1,6 +1,6 @@
 # CREATE_TABLES
 
- create table if not exists "anagrafica" (
+ create table if not exists "applicazione" (
     "idapplicazione" serial primary key,
     "nome_app" text not null,
     "apmcode" text,
@@ -63,7 +63,7 @@ create table if not exists "rescan" (
     "last_rescan" text,
     "fk_idapplicazione" int,
     "fk_idappowner" int,
-    foreign key(fk_idapplicazione) references anagrafica(idapplicazione),
+    foreign key(fk_idapplicazione) references applicazione(idapplicazione),
     foreign key(fk_idappowner) references appowner(idappowner)
 );
 
@@ -85,7 +85,7 @@ create table if not exists "logfileapp" (
   "fk_idutente" int not null,
   "fk_idapp" int not null,
   foreign key(fk_idutente) references utente(idutente),
-  foreign key(fk_idapp) references anagrafica(idapplicazione)
+  foreign key(fk_idapplicazione) references applicazione(idapplicazione)
 );
 
 create table if not exists "logfilerescan" (
@@ -103,7 +103,7 @@ create table if not exists "monitoraggio"(
   "idmonitoraggio"serial primary key,
   "fk_idapplicazione" int not null,
   "fk_idappowner" int not null,
-  foreign key(fk_idapplicazione) references anagrafica(idapplicazione),
+  foreign key(fk_idapplicazione) references applicazione(idapplicazione),
   foreign key(fk_idappowner) references appowner(idappowner)
 );
 
