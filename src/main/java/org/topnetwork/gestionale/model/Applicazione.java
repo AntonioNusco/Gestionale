@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Application {
+public class Applicazione {
 	private int idApplicazione;
 	private int nodoConsole;
 	private Time avgAnalysisTime, launchingMeetingDataGatheringStarting;

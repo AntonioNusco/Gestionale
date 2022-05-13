@@ -107,9 +107,10 @@ create table if not exists "monitoraggio"(
   foreign key(fk_idappowner) references appowner(idappowner)
 );
 
---------------------------------------------------INSERT---------------------------------------------------------------------------------------
+-----------------------------------------------INSERT APPLICAZIONE 1-----------------------------------------------
 
-INSERT INTO "anagrafica" VALUES
+
+INSERT INTO "applicazione" VALUES
     (default,'2 Beat','AP04024','Pescetelli','Bonelli','I&N DH','Java,Sql,DynamoDB,Phyton','TwoBeat-AP04024','NO',5,'E6AAWBCAAA02',NULL,'Done','Done','YES',NULL,3,'Yes','Yes','No check',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'5-Mission Critical','Mixed',NULL),
     (default,'AD','IT00012','Casari',NULL,'DS Italy','.NET, HTML5, SQL','AD_IT00012','NO',2,'E2AAWBCAAA02',NULL,'Done',NULL,NULL,NULL,0.67,'Yes','NO','No check',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (default,'Advanced Plant Efficiency Management','AP10931.19','Casari','Minieri','PGen DH','Js, XSJS, DB HANA','Advanced_Efficiency_Management_AP10931_19','NO',2,'E2AAWBCAAA02',NULL,'Done',NULL,'YES',NULL,0.5,'Yes','Yes','No check',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'5-Mission Critical','Mixed',NULL),
@@ -389,9 +390,9 @@ Inviato nuovo sollecito (18/01/2021)','Pending feedback','0.75','YES',NULL,0.5,'
     (default,'SIGAME','AP02195','Pescetelli','Minieri','DS Iberia','VB.NET, SQL Server','SIGAME_AP02195','NO',2,'E2AAWBCAAA02',NULL,'Done','Done','YES',NULL,NULL,'Yes','Yes','No check',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'3-High','Waterfall',NULL),
     (default,'SIGO','IT05704','Casari','Minieri','AFC DH','C# - .net ASP - Phyton - vb -SQL','SIGO_IT05704','NO',4,'E6AAWBCAAA01',NULL,NULL,NULL,NULL,NULL,2,'Yes','Yes','Enabled@Prod',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
+-----------------------------------------------INSERT APPLICAZIONE 2-----------------------------------------------
 
-
-INSERT INTO "anagrafica" VALUES
+INSERT INTO "applicazione" VALUES
     (default,'SIGO Maps','IT05704.01','Casari','Minieri','AFC DH','C# - .net ASP','SIGO_MAPS_IT05704_01','NO',4,'E6AAWBCAAA01',NULL,NULL,NULL,NULL,NULL,0.75,'Yes','Yes','Enabled@Prod',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (default,'SIGO Neomante','IT05704.02','Casari','Minieri','AFC DH','C# - .net ASP -SQL','SIGO_NEOMANTE_IT05704_02','NO',4,'E6AAWBCAAA01',NULL,NULL,NULL,NULL,NULL,0.6,'Yes','NO','Enabled@Prod',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
     (default,'SII2MEASURE','AP06320','Casari',NULL,'DS Italy','C# - .net J2EE -SQL','sii2measure_ap06320','NO',2,'E2AAWBCAAA02',NULL,NULL,NULL,NULL,NULL,NULL,'Yes','NO','No check',NULL,NULL,'ok',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
