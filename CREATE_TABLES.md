@@ -52,8 +52,8 @@ create table if not exists "appowner" (
 create table if not exists "rescan" (
     "idrescan" serial primary key,
     "nrescan" int not null,
-    "ongoing" int,
-    "archive" int,
+    "ongoing" boolean,
+    "archive" boolean,
     "rkd" date,
     "afpe" text,
     "newob" int not null,
