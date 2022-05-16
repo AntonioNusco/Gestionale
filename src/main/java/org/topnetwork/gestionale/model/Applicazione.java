@@ -38,7 +38,4 @@ public class Applicazione {
 	soloCMS, macchina, noteOnboarding, fase, afpStatus, pubblicatoDashboard, noteAppOwner, jiraAutomationAcitvision,
 	repoAvailability, automationStatus, automationNotes, greenItIndex, onboardingKitClosing, sourceCodeFinalDelivery,
 	linkConfluence, businessCritically, devMethodology, provider;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "FK_idAppOwner", referencedColumnName = "idAppOwner")
-	private AppOwner appowner;
 }
