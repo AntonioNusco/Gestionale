@@ -1,4 +1,5 @@
 package org.topnetwork.gestionale.model;
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,7 @@ import lombok.Setter;
 
 @Entity
 @Table
-public class LogFileApp {
+public class LogFileApp implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +34,10 @@ public class LogFileApp {
 	private String valorePrecedente, nuovoValore;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
-	private int idUtente;
+	private Utente utente;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppliczione", referencedColumnName = "idApplicazione")
-	private int idApplicazione;
-	
-	
+	private Applicazione applicazione;	  	 
 	
 	
 }

@@ -42,10 +42,10 @@ public class Rescan implements Serializable{
 	private Date rkd;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idApplicazione", referencedColumnName = "idApplicazione")
-	private int idApplicazione;
+	private Applicazione applicazione;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppOwner", referencedColumnName = "idAppOwner")
-	private int idAppowner;
+	private AppOwner appOwner;
 	
 	
 	

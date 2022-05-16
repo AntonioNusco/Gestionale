@@ -29,9 +29,9 @@ public class Monitoraggio implements Serializable{
 	private int idMonitoraggio;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idApplicazione", referencedColumnName = "idApplicazione")
-	private int idApplicazione;
+	private Applicazione applicazione;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppOwner", referencedColumnName = "idAppOwner")
-	private int idAppowner;
+	private AppOwner appOwner;
 	
 }

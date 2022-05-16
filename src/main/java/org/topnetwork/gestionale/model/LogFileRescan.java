@@ -35,10 +35,10 @@ public class LogFileRescan implements Serializable{
 	private LocalDateTime data;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
-	private int idUtente;
+	private Utente utente;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idRescan", referencedColumnName = "idRescan")
-	private int idRescan;
+	private Rescan rescan;
 	
 	
 }
