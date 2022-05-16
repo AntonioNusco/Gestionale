@@ -1,11 +1,14 @@
 package org.topnetwork.gestionale.model;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -28,4 +31,14 @@ public class LogFileApp {
 	private Date data;
 	@Column
 	private String valorePrecedente, nuovoValore;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
+	private int idUtente;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "FK_idAppliczione", referencedColumnName = "idApplicazione")
+	private int idApplicazione;
+	
+	
+	
+	
 }
