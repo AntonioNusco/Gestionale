@@ -3,6 +3,11 @@ package org.topnetwork.gestionale.model;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +18,19 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class Applicazione {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idApplicazione;
+	@Column
 	private int nodoConsole;
+	@Column
 	private Time avgAnalysisTime, launchingMeetingDataGatheringStarting;
+	@Column
 	private Date automationEnablingDate, insertedInCastProgram, stakeholderEngagement,
 	stakeholderBrief, onBoardingKitDelivery, primaRestitution;
+	@Column
 	private boolean done;
+	@Column
 	private String nomeApp, apmCode, ownerOnboarding, ownerAFP, gdsUnit, tecnologia, serverManager,
 	soloCMS, macchina, noteOnboarding, fase, afpStatus, pubblicatoDashboard, noteAppOwner, jiraAutomationAcitvision,
 	repoAvailability, automationStatus, automationNotes, greenItIndex, onboardingKitClosing, sourceCodeFinalDelivery,
