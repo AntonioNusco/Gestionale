@@ -46,7 +46,6 @@ public class Rescan implements Serializable{
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppOwner", referencedColumnName = "idAppOwner")
 	private AppOwner appOwner;
-	private String sefunnzionaGodo;
 	
 	
 	
