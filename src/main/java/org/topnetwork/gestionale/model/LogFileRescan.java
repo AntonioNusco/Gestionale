@@ -20,6 +20,7 @@ import lombok.*;
 @Entity
 @Table(name= "logfilerescan")
 public class LogFileRescan implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idLogRescan;
