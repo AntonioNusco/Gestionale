@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.apache.log4j.Logger;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +39,9 @@ public class LogFileApp implements Serializable{
 	private Utente utente;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppliczione", referencedColumnName = "idApplicazione")
-	private Applicazione applicazione;	  	 
+	private Applicazione applicazione;	
+	
+	private static final Logger logger = Logger.getLogger(LogFileApp.class);
 	
 	
 }
