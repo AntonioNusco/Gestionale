@@ -26,7 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 
 @Entity
-@Table
+@Table 
 public class Rescan implements Serializable{
 	
 	@Id
@@ -37,7 +37,7 @@ public class Rescan implements Serializable{
 	@Column
 	private String aefpe,yoyRolling,lastRescan;
 	@Column
-	private boolean pnGoing,archive,exist;
+	private boolean pnGoing,archive,exist; 
 	@Column
 	private Date rkd;
 	@OneToMany(cascade = CascadeType.ALL)

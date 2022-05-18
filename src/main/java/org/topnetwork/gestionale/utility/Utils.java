@@ -2,14 +2,16 @@ package org.topnetwork.gestionale.utility;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.topnetwork.gestionale.model.Utente;
 
 public class Utils {
 
 	private static final Logger logger = Logger.getLogger(Utils.class);
 	
-	public static void logInfo(String s) {
+	public static void logInfo(Utente u) {
 		PropertyConfigurator.configure("log4j.properties");
-		logger.info(s);
+		if(u.isRuolo())logger.info(u.toString() + " , Ruolo : MODIFICATORE ha effettuato l'accesso");
+		if(!u.isRuolo())logger.info(u.toString() + " , Ruolo : VISUALIZZATORE ha effettuato l'accesso");
 	}
 	
 	public static void logWarn(String s) {

@@ -14,10 +14,11 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
-@Getter
 @Setter
+@Getter 
 @NoArgsConstructor
 
 
@@ -28,7 +29,14 @@ public class Utente implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUtente;
 	@Column
-	private String nome, cognome, password, email, ruolo;
+	private String nome, cognome, password, email;
+	@Column
+	private boolean ruolo;
+	@Override
+	public String toString() {
+		return "Nome Utente : "  + nome + " " + cognome + " , Email : " + email;
+	}
+	
 	
 	
 	
