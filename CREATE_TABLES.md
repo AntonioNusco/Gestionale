@@ -1300,6 +1300,12 @@ INSERT INTO "monitoraggio" VALUES
     (312,312,88),
     (313,313,88),
     (314,314,88);
+    
+ ----------------------------------------------------ALTER TABLE-------------------------------------------------------------------------
+ 
+  ALTER TABLE applicazione ADD COLUMN "exist" boolean DEFAULT true;
+  
+  ALTER TABLE rescan ADD COLUMN "exist" boolean DEFAULT true;
 
 
 
