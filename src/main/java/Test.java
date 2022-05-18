@@ -13,18 +13,18 @@ import java.util.List;
 
 public class Test {
 
-	 public <E> List<E> ricercaPerColonna (Class<E> e, String s){
+	// public <E> List<E> ricercaPerColonna (Class<E> e, String s){
 		 
-		 "Select s from e"
-		 
-		 
+		// "Select s from e"
 		 
 		 
 		 
 		 
 		 
 		 
-	 }
+		 
+		 
+	 //}
 	
 		 
 		

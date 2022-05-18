@@ -4,4 +4,16 @@ import org.topnetwork.gestionale.dao.model.MonitoraggioDao;
 
 public class JpaMonitoraggioDao implements MonitoraggioDao {
 
+
+
+
+
+
+
+
+
+
+
+
+
 }

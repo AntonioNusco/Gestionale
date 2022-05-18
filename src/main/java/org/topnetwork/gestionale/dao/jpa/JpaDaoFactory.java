@@ -4,4 +4,8 @@ import org.topnetwork.gestionale.dao.DaoFactory;
 
 public class JpaDaoFactory extends DaoFactory {
 
+	
+	
+	
+	
 }
