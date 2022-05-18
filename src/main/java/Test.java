@@ -1,19 +1,26 @@
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.spi.Configurator;
+import org.glassfish.jersey.server.JSONP;
+import static org.topnetwork.gestionale.utility.Utils.*;
 
 public class Test {
 
-	 private static final Logger logger = Logger.getLogger(Test.class);
 	 
-		public static void ciao(boolean c) {
-			if(c) logger.info("vero");
-			else logger.info("falso");
-		}
+	 
+	
+		 
+		
 	
 	public static void main(String[] args) {
 		
-		ciao(true);
 		
+		
+		logInfo("gsgs");
+		logError("gwer");
+		logWarn("oppio");
 		
 	}
 	

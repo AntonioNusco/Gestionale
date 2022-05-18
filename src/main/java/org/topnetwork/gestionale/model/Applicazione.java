@@ -37,7 +37,7 @@ public class Applicazione implements Serializable{
 	private Date automationEnablingDate, insertedInCastProgram, stakeholderEngagement,
 	stakeholderBrief, onBoardingKitDelivery, primaRestitution;
 	@Column
-	private boolean done;
+	private boolean done,exist;
 	@Column
 	private String nomeApp, apmCode, ownerOnboarding, ownerAFP, gdsUnit, tecnologia, serverManager,
 	soloCMS, macchina, noteOnboarding, fase, afpStatus, pubblicatoDashboard, noteAppOwner, jiraAutomationAcitvision,

@@ -1,0 +1,16 @@
+2022-05-18 10:00:10 INFO  Test:16 - vero
+2022-05-18 10:03:42 INFO  Test:16 - vero
+2022-05-18 10:27:36 INFO  org.topnetwork.gestionale.utility.Utils:17 - lesggo
+2022-05-18 10:27:36 ERROR org.topnetwork.gestionale.utility.Utils:27 - lesggo
+2022-05-18 10:27:36 FATAL org.topnetwork.gestionale.utility.Utils:32 - lesggo
+2022-05-18 10:27:36 WARN  org.topnetwork.gestionale.utility.Utils:22 - lesggo
+2022-05-18 10:30:45 INFO  org.topnetwork.gestionale.utility.Utils:13 - ai
+2022-05-18 10:30:45 ERROR org.topnetwork.gestionale.utility.Utils:23 - ggo
+2022-05-18 10:30:45 WARN  org.topnetwork.gestionale.utility.Utils:18 - sgado
+2022-05-18 10:33:18 INFO  org.topnetwork.gestionale.utility.Utils:13 - gsgs
+2022-05-18 10:33:18 ERROR org.topnetwork.gestionale.utility.Utils:23 - gwer
+2022-05-18 10:33:18 WARN  org.topnetwork.gestionale.utility.Utils:18 - oppio
+2022-05-18 10:33:33 INFO  org.topnetwork.gestionale.utility.Utils:13 - gsgs
+2022-05-18 10:33:33 ERROR org.topnetwork.gestionale.utility.Utils:23 - gwer
+2022-05-18 10:33:33 ERROR org.topnetwork.gestionale.utility.Utils:23 - gwer
+2022-05-18 10:33:33 WARN  org.topnetwork.gestionale.utility.Utils:18 - oppio
