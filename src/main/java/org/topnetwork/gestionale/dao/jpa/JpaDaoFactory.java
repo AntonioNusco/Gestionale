@@ -86,7 +86,7 @@ public class JpaDaoFactory extends DaoFactory {
 			id = ((Rescan) e).getIdRescan();
 		} else return false;
 		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("update :table set exist = 0 where id = :id");
+		Query q = em.createQuery("update table set exist = 0 where id = :id");
 		q.setParameter("table", e.getClass());
 		q.setParameter("id", id);
 		EntityTransaction et = em.getTransaction();

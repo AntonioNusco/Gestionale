@@ -5,6 +5,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.spi.Configurator;
 import org.apache.tomcat.util.json.JSONParser;
 import org.glassfish.jersey.*;
+import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
+import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Utente;
 
 import static org.topnetwork.gestionale.utility.Utils.*;
@@ -21,6 +23,7 @@ public class Test {
 		
 	
 	public static void main(String[] args) {
+		
 		Utente u = new Utente("filippo","vescovo","pwd", "email",true);
 			
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
@@ -35,8 +38,47 @@ public class Test {
 			System.out.println("col cazzo");
 		}
 
+		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		
+		System.out.println(JpaDaoFactory.getDaoFactory().save(a));
+		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

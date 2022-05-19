@@ -1308,6 +1308,14 @@ INSERT INTO "monitoraggio" VALUES
   ALTER TABLE rescan ADD COLUMN "exist" boolean DEFAULT true;
   
    ALTER TABLE utente RENAME COLUMN "e-mail" to "email";
+   
+   alter table applicazione rename "automatiostatus" to "automationstatus";
+   
+   alter table applicazione rename "launchingmeetingdataggtheringstarting" to "launchingmeetingdatagatheringstarting";
+   
+   alter table applicazione rename "owneroonboarding" to "owneronboarding";
+   
+   alter table applicazione alter column noteappowner type text;
 
 
 
