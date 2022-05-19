@@ -47,14 +47,14 @@ public class Utils {
 	//il problema potrebbe essere nelle jointable (vedere cronologia chrome)
 
 	public static String getNomeClasse(String s) {
-		String stringa;
-		int index = s.lastIndexOf('.');
-		stringa = s.substring(index+1, s.length());
-		return stringa;
+//		String stringa;
+//		int index = s.lastIndexOf('.');
+//		stringa = s.substring(index+1, s.length());
+//		return stringa;
 
-//		 String[] array = s.split("\\.");
-//				 System.out.println(array.length);
-//		 return array[array.length-1];
+		 String[] array = s.split("\\.");
+				 System.out.println(array.length);
+		 return array[array.length-1];
 
 //		String stringa1 = "";
 //		String stringa2 = "";
