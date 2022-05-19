@@ -14,9 +14,9 @@ public class Utils {
 		if(!u.isRuolo())logger.info(u.toString() + " , Ruolo : VISUALIZZATORE ha effettuato l'accesso");
 	}
 	
-	public static void logWarn(String s) {
+	public static void logWarn(Object o) {
 		PropertyConfigurator.configure("log4j.properties");
-		logger.warn(s);
+		logger.warn(o.toString());
 	}
 	
 	public static void logError(String s) {
