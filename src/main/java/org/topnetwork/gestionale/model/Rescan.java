@@ -40,7 +40,7 @@ public class Rescan implements Serializable{
 	private boolean pnGoing,archive,exist; 
 	@Column
 	private Date rkd;
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idApplicazione", referencedColumnName = "idApplicazione")
 	private Applicazione applicazione;
 	@ManyToOne(cascade = CascadeType.ALL)

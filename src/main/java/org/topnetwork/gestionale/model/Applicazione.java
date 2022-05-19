@@ -3,13 +3,15 @@ package org.topnetwork.gestionale.model;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
-
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -43,4 +45,8 @@ public class Applicazione implements Serializable{
 	soloCMS, macchina, noteOnboarding, fase, afpStatus, pubblicatoDashboard, noteAppOwner, jiraAutomationAcitvision,
 	repoAvailability, automationStatus, automationNotes, greenItIndex, onboardingKitClosing, sourceCodeFinalDelivery,
 	linkConfluence, businessCritically, devMethodology, provider;
+	@OneToMany(mappedBy="applicazione")
+	private Set<Rescan> rescans;
+	@ManyToMany(mappedBy="applications")
+	private Set<AppOwner> owners;
 }

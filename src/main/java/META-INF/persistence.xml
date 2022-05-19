@@ -3,7 +3,6 @@
 	<persistence-unit name="Gestionale">
 	<class>org.topnetwork.gestionale.model.Utente</class>
 	<class>org.topnetwork.gestionale.model.Rescan</class>
-	<class>org.topnetwork.gestionale.model.Monitoraggio</class>
 	<class>org.topnetwork.gestionale.model.LogFileRescan</class>
 	<class>org.topnetwork.gestionale.model.LogFileApp</class>
 	<class>org.topnetwork.gestionale.model.AppOwner</class>
