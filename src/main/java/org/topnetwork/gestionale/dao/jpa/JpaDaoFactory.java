@@ -16,6 +16,7 @@ import org.topnetwork.gestionale.dao.model.RescanDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
+import org.topnetwork.gestionale.utility.*;
 
 public class JpaDaoFactory extends DaoFactory {
 
@@ -70,12 +71,17 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.persist(e);
 			et.commit();
+			Utils.logWarn(Utils.utenteLoggato.toString()," HA INSERITO " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
 			return false;
 		}
 	}
+	
+	//mostra ulteriori infromazioni
+   //come stringa al front
+	
 
 	@Override
 	public <E> boolean logicDelete(E e) {
@@ -96,6 +102,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
+			Utils.logWarn(Utils.utenteLoggato.toString()," HA ELIMINATO " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
@@ -103,6 +110,7 @@ public class JpaDaoFactory extends DaoFactory {
 		}
 	}
 
+	
 	@Override
 	public <E> boolean delete(E e) {
 		EntityManager em = JpaDaoFactory.getConnection();
@@ -111,6 +119,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.remove(e);
 			et.commit();
+			Utils.logWarn(Utils.utenteLoggato.toString()," HA ELIMINATO DEFINITIVAMENTE" + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();

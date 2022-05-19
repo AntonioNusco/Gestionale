@@ -53,6 +53,15 @@ public class Applicazione implements Serializable{
 	private Set<LogFileApp> logFiles;
 	@OneToMany(mappedBy = "rescan")
 	private Set<LogFileRescan> logFile;
+	@Override
+	public String toString() {
+		return "Applicazione -> nome_App : " + nome_App + ", apmCode : "
+				+ apmCode;
+	}
+	
+	
+	
+	
 	
 	
 	

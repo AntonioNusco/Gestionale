@@ -7,7 +7,9 @@ import org.apache.tomcat.util.json.JSONParser;
 import org.glassfish.jersey.*;
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
+import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
+import org.topnetwork.gestionale.utility.Utils;
 
 import static org.topnetwork.gestionale.utility.Utils.*;
 
@@ -37,14 +39,21 @@ public class Test {
 		} catch (RollbackException e) {
 			System.out.println("col cazzo");
 		}
+		
+		Utils.utenteLoggato = u;
 
-		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-		
+		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
+				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		Rescan r= new Rescan();
 		System.out.println(JpaDaoFactory.getDaoFactory().save(a));
-		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
+//		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
+//		System.out.println(Utils.queryList(u).toString());
+//		System.out.println(Utils.queryList(r).toString());
+		System.out.println(Utils.queryList(a).toString());
 		
 		
-		logInfo(u);
+	
+		
 		
 		
 		
