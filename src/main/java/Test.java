@@ -44,6 +44,9 @@ public class Test {
 		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
 		
 		
+		logInfo(u);
+		
+		
 		
 		
 		

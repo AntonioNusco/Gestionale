@@ -80,14 +80,16 @@ public class JpaDaoFactory extends DaoFactory {
 	@Override
 	public <E> boolean logicDelete(E e) {
 		int id = 0;
+		String s = "";
 		if(e instanceof Applicazione) {
 			id = ((Applicazione) e).getIdApplicazione();
+			s = "Applicazione";
 		} else if (e instanceof Rescan) {
 			id = ((Rescan) e).getIdRescan();
+			s = "Rescan";
 		} else return false;
 		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("update table set exist = 0 where id = :id");
-		q.setParameter("table", e.getClass());
+		Query q = em.createQuery("update " + s + " set exist = false where id = :id");
 		q.setParameter("id", id);
 		EntityTransaction et = em.getTransaction();
 		try {
