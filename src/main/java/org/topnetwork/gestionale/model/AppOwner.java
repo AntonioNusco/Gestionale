@@ -23,7 +23,6 @@ import lombok.AllArgsConstructor;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 
 @Entity
@@ -52,6 +51,18 @@ public class AppOwner implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "fk_idApplicazione")
 		)
 	private Set<Applicazione> applications;
+	
+	public AppOwner(int idAppOwner, String nome, String cognome, String email, String cell, String dsUnit) {
+		super();
+		this.idAppOwner = idAppOwner;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.cell = cell;
+		this.dsUnit = dsUnit;
+	}
+	
+	
 	
 	
 	

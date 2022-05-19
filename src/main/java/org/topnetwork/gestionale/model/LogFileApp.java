@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +20,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 
 @Entity
@@ -33,12 +33,22 @@ public class LogFileApp implements Serializable{
 	private Date data;
 	@Column
 	private String valorePrecedente, nuovoValore;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
 	private Utente utente;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppliczione", referencedColumnName = "idApplicazione")
-	private Applicazione applicazione;	
+	private Applicazione applicazione;
+	
+	public LogFileApp(int idLogApp, Date data, String valorePrecedente, String nuovoValore) {
+		super();
+		this.idLogApp = idLogApp;
+		this.data = data;
+		this.valorePrecedente = valorePrecedente;
+		this.nuovoValore = nuovoValore;
+	}	
+	
+	
 	
 	
 	

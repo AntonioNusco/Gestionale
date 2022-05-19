@@ -35,7 +35,7 @@ public class Test {
 		
 		
 		
-		Utente u = new Utente(1,"sasi","pirozzi","%&tredf9","sasi@sasi.it",false);
+		Utente u = new Utente("sasi","pirozzi","%&tredf9","sasi@sasi.it",false);
 		logInfo(u);
 		//logError("gwer");
 		//logWarn("oppio");

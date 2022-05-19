@@ -22,7 +22,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 
 @Entity
@@ -46,6 +45,23 @@ public class Rescan implements Serializable{
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idAppOwner", referencedColumnName = "idAppOwner")
 	private AppOwner appOwner;
+	
+	public Rescan(int idRescan, int nRescan, int newOb, int py, int ytd, String aefpe, String yoyRolling,
+			String lastRescan, boolean pnGoing, boolean archive, boolean exist, Date rkd) {
+		super();
+		this.idRescan = idRescan;
+		this.nRescan = nRescan;
+		this.newOb = newOb;
+		this.py = py;
+		this.ytd = ytd;
+		this.aefpe = aefpe;
+		this.yoyRolling = yoyRolling;
+		this.lastRescan = lastRescan;
+		this.pnGoing = pnGoing;
+		this.archive = archive;
+		this.exist = exist;
+		this.rkd = rkd;
+	}
 	
 	
 	
