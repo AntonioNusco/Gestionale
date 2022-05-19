@@ -8,6 +8,7 @@
 	<class>org.topnetwork.gestionale.model.LogFileApp</class>
 	<class>org.topnetwork.gestionale.model.AppOwner</class>
 	<class>org.topnetwork.gestionale.model.Applicazione</class>
+	
 	<properties>
 		<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/progettotopnetwork" />
 		<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
