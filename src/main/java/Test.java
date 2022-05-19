@@ -11,34 +11,30 @@ import static org.topnetwork.gestionale.utility.Utils.*;
 
 import java.util.List;
 
-public class Test {
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 
-	// public <E> List<E> ricercaPerColonna (Class<E> e, String s){
-		 
-		// "Select s from e"
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-	 //}
-	
-		 
+public class Test {
 		
 	
 	public static void main(String[] args) {
-		
-		
-		
-		
-		
-		Utente u = new Utente("sasi","pirozzi","%&tredf9","sasi@sasi.it",false);
-		logInfo(u);
-		//logError("gwer");
-		//logWarn("oppio");
+		Utente u = new Utente("filippo","vescovo","pwd", "email",true);
+			
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
+		EntityManager em = emf.createEntityManager();
+		try {
+			EntityTransaction et = em.getTransaction();
+			et.begin();
+			em.persist(u);
+			et.commit();
+			System.out.println("ok");
+		} catch (RollbackException e) {
+			System.out.println("col cazzo");
+		}
+
 		
 	}
 	

@@ -1306,6 +1306,8 @@ INSERT INTO "monitoraggio" VALUES
   ALTER TABLE applicazione ADD COLUMN "exist" boolean DEFAULT true;
   
   ALTER TABLE rescan ADD COLUMN "exist" boolean DEFAULT true;
+  
+   ALTER TABLE utente RENAME COLUMN "e-mail" to "email";
 
 
 
