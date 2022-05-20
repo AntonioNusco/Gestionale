@@ -4,8 +4,10 @@ import org.topnetwork.gestionale.model.Utente;
 
 public interface UtenteDao {
 
-	public boolean login(Utente u);
-	public boolean registrazione(String nome, String cognome , String password,String email);
+	public Utente login(String email,String password);
+	public boolean registrazione(Utente u);
+	boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email);
+	boolean registrazioneModificatore(String nome, String cognome, String password, String email);
 	
 	
 	

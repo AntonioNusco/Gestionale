@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
+import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Utente;
 
 public class Utils {
@@ -43,6 +44,18 @@ public class Utils {
 		queryList = (List<Object>) q.getResultList();
 		return queryList;
 	}
+	
+//	public static void trovaStoPorcoDio(int id){
+//		String a;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		for(id=1 ; id>=1 ; id++) {
+//			Query q = em.createNativeQuery("Select noteonboarding from Applicazione where idapplicazione = :id");
+//			q.setParameter("id", id);
+//			 a = (String) q.getSingleResult();
+//			System.out.println(a + id);
+//		}
+//		
+//	}
 	
 	//il problema potrebbe essere nelle jointable (vedere cronologia chrome)
 

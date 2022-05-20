@@ -45,19 +45,18 @@ public class Test {
 		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
 				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 		Rescan r= new Rescan();
-		System.out.println(JpaDaoFactory.getDaoFactory().save(a));
+	//	System.out.println(JpaDaoFactory.getDaoFactory().save(a));
 //		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
 //		System.out.println(Utils.queryList(u).toString());
 //		System.out.println(Utils.queryList(r).toString());
-		System.out.println(Utils.queryList(a).toString());
-		
+		System.out.println(Utils.queryList(a));
+
+//		
+//		trovaStoPorcoDio(1);
 		
 	
 		
-		
-		
-		
-		
+
 		
 		
 		

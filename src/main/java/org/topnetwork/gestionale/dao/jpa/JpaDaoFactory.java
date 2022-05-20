@@ -42,7 +42,6 @@ public class JpaDaoFactory extends DaoFactory {
 		return JpaAppOwnerDao.getInstance();
 	}
 
-
 	@Override
 	public LogFileAppDao getLogFileAppDao() {
 		return JpaLogFileAppDao.getInstance();
@@ -60,9 +59,9 @@ public class JpaDaoFactory extends DaoFactory {
 
 	@Override
 	public UtenteDao getUtenteDao() {
-		return JpaUtenteDao.getInstance(); 
+		return JpaUtenteDao.getInstance();
 	}
-	
+
 	@Override
 	public <E> boolean save(E e) {
 		EntityManager em = JpaDaoFactory.getConnection();
@@ -71,29 +70,29 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.persist(e);
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString()," HA INSERITO " + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " HA INSERITO " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
 			return false;
 		}
 	}
-	
-	//mostra ulteriori infromazioni
-   //come stringa al front
-	
+
+	// mostra ulteriori infromazioni
+	// come stringa al front
 
 	@Override
 	public <E> boolean logicDelete(E e) {
 		int id = 0;
 		String s = "";
-		if(e instanceof Applicazione) {
+		if (e instanceof Applicazione) {
 			id = ((Applicazione) e).getIdApplicazione();
 			s = "Applicazione";
 		} else if (e instanceof Rescan) {
 			id = ((Rescan) e).getIdRescan();
 			s = "Rescan";
-		} else return false;
+		} else
+			return false;
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("update " + s + " set exist = false where id = :id");
 		q.setParameter("id", id);
@@ -102,7 +101,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString()," HA ELIMINATO " + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " HA ELIMINATO " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
@@ -110,7 +109,6 @@ public class JpaDaoFactory extends DaoFactory {
 		}
 	}
 
-	
 	@Override
 	public <E> boolean delete(E e) {
 		EntityManager em = JpaDaoFactory.getConnection();
@@ -119,42 +117,58 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.remove(e);
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString()," HA ELIMINATO DEFINITIVAMENTE" + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " HA ELIMINATO DEFINITIVAMENTE" + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
 			return false;
 		}
 	}
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public <E> boolean update(E e, String nomeColonna, E nuovoValore) {
+		
+/*  Lato frontend: click sul tasto modifica dell oggetto che mi farà tornare in java il 
+ * json di quell oggetto da cui estrapolerò id e nome tabella.
+ * Dopo il click del tatso modifica si aprirà una menu a tendina per far scegliere il campo da modificare
+ * e infine una casella di testo per il nuovo valore
+ * 
+ * in questo modo avremo nomeTabella,nomeColonna,ID e nuovoValore per scrivere la query 
+ * 		
+ */
+
+		
+		return false;
+		
+//		int id = 0;
+//		String s = "";
+//		Applicazione a;
+//		Rescan r;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		if (nomeTabella.equalsIgnoreCase("applicazione")) {
+//			for(Object app : Utils.queryList(a)) {
+//				
+//			}
+//			id = ((Applicazione) nomeApp).getIdApplicazione();
+//			s = "Applicazione";
+//		} else if (nomeTabella.equalsIgnoreCase("rescan")) {
+//			id = ((Rescan) nomeApp).getIdRescan();
+//			s = "Rescan";
+//		} else
+//			return false;
+//		Query q = em.createQuery("update " + s + " set " + nomeColonna + " = false where id = :id");
+//		q.setParameter("id", id);
+//		EntityTransaction et = em.getTransaction();
+//		try {
+//			et.begin();
+//			q.executeUpdate();
+//			et.commit();
+//			Utils.logWarn(Utils.utenteLoggato.toString(), " HA ELIMINATO " + e);
+//			return true;
+//		} catch (RollbackException i) {
+//			i.printStackTrace();
+//			return false;
+//		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+}

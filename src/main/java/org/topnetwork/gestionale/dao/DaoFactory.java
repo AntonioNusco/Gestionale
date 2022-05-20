@@ -25,6 +25,9 @@ public abstract class DaoFactory {
 	public abstract <E> boolean save(E e);
 	public abstract <E> boolean delete(E e);
 	public abstract <E> boolean logicDelete(E e);
+
+	public abstract <E> boolean update(E e, String nomeColonna, E nuovoValore);
+
 	
 	
 }
