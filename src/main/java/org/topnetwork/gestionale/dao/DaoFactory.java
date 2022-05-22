@@ -1,5 +1,7 @@
 package org.topnetwork.gestionale.dao;
 
+import java.util.List;
+
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.dao.model.AppOwnerDao;
 import org.topnetwork.gestionale.dao.model.ApplicazioneDao;
@@ -27,6 +29,8 @@ public abstract class DaoFactory {
 	public abstract <E> boolean logicDelete(E e);
 
 	public abstract <E> boolean update(E e, String nomeColonna, E nuovoValore);
+	
+	public abstract <E> List<E> queryList(E e);
 
 	
 	

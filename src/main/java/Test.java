@@ -49,8 +49,19 @@ public class Test {
 //		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
 //		System.out.println(Utils.queryList(u).toString());
 //		System.out.println(Utils.queryList(r).toString());
-		System.out.println(Utils.queryList(a));
+//		List<Applicazione> apps = new Generics<Applicazione>().queryList(a);
+//				
+//				//System.out.println(JpaDaoFactory.getDaoFactory().queryList(new 	Utente()));
+//	
+//		
+//		for(Applicazione y : apps) {
+//			System.out.println(y);
+//		}
 
+		
+		System.out.println(new Generics<Applicazione>().queryList(a));
+		
+		
 //		
 //		trovaStoPorcoDio(1);
 		

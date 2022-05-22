@@ -1,5 +1,7 @@
 package org.topnetwork.gestionale.dao.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -138,6 +140,7 @@ public class JpaDaoFactory extends DaoFactory {
  */
 
 		
+		
 		return false;
 		
 //		int id = 0;
@@ -170,5 +173,27 @@ public class JpaDaoFactory extends DaoFactory {
 //			return false;
 //		}
 	}
+	
+	
+	
+	public <E> List<E> queryList(E e) {
+		List<E> queryList;
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createNativeQuery("Select * from " + Utils.getNomeClasse(e.getClass().toString()));
+		queryList = (List<E>) q.getResultList();
+		return queryList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

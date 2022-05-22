@@ -37,13 +37,14 @@ public class Utils {
 		logger.error(s);
 	}
 
-	public static List<Object> queryList(Object o) {
-		List<Object> queryList;
-		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createNativeQuery("Select * from " + getNomeClasse(o.getClass().toGenericString()));
-		queryList = (List<Object>) q.getResultList();
-		return queryList;
-	}
+//	public static List<Object> queryList(Object o) {
+//		List<Object> queryList;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		Query q = em.createNativeQuery("Select * from " + getNomeClasse(o.getClass().toGenericString()));
+//		queryList = (List<Object>) q.getResultList();
+//		return queryList;
+//	}
+	
 	
 //	public static void trovaStoPorcoDio(int id){
 //		String a;
