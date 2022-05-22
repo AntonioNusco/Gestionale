@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.topnetwork.gestionale.appconfig.TestApi;
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.utility.Utils;
@@ -31,7 +32,7 @@ public class TestServlet extends HttpServlet {
 	
 		ObjectMapper om = new ObjectMapper();
 		String s = om.writerWithDefaultPrettyPrinter().writeValueAsString(lista);
-		
+	
 		 response.getWriter().append(s);
 	}
 
