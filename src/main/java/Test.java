@@ -26,7 +26,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Utente u = new Utente("filippo","vescovo","pwd", "email",true);
+		Utente u = new Utente("filippo","vescovo","newpsw", "email",true);
 			
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
 		EntityManager em = emf.createEntityManager();

@@ -1,16 +1,8 @@
 package org.topnetwork.gestionale.utility;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
-import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Utente;
 
 public class Utils {

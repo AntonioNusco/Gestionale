@@ -13,15 +13,14 @@ import org.topnetwork.gestionale.model.Utente;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Path("test")
-public class TestApi {
+@Path("utente")
+public class UtenteServices {
 
 	List<Utente> utenti = new ArrayList<Utente>();
 	
-	
 	@GET
-	@Path("{name}")
-	public String test(@PathParam("name") String name) {
+	@Path("lista")
+	public String listaUtenti() {
 		utenti = JpaDaoFactory.getDaoFactory().queryList(new Utente());
 		ObjectMapper om = new ObjectMapper();
 		try {
@@ -31,6 +30,7 @@ public class TestApi {
 			return null;
 		}
 		
+	
 		
 		
 		
