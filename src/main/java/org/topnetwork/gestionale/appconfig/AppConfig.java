@@ -8,7 +8,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class AppConfig extends ResourceConfig{
 	
 	public AppConfig() {
-		packages("org.topnetwork.gestionale.appconfig.api");
+		packages("org.topnetwork.gestionale.appconfig");
 	}
 
 }
