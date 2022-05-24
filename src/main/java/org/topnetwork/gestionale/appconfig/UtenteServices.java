@@ -1,11 +1,14 @@
 package org.topnetwork.gestionale.appconfig;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Utente;
@@ -29,20 +32,15 @@ public class UtenteServices {
 			e.printStackTrace();
 			return null;
 		}
-		
-	
-		
-		
-		
+
 	}
 	
-	
+	@POST
+	@Path("add")
+	public Response add(Utente u) {
+		
+		return Response.created()
+	}
 
-//	@GET
-//	@Produces({ MediaType.TEXT_PLAIN })
-//	@Path("/plain")
-//	public static String getPlain() {
-//		return "Hello World!!!";
-//	}
 
 }
