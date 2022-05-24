@@ -35,12 +35,12 @@ public class UtenteServices {
 
 	}
 	
-	@POST
-	@Path("add")
-	public Response add(Utente u) {
-		
-		return Response.created()
-	}
+//	@POST
+//	@Path("add")
+//	public Response add(Utente u) {
+//		
+//		return Response.created()
+//	} 
 
 
 }

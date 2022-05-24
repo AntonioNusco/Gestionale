@@ -47,9 +47,6 @@ public class LogFileApp implements Serializable{
 		this.valorePrecedente = valorePrecedente;
 		this.nuovoValore = nuovoValore;
 	}
-
-	public LogFileApp() {
-	}	
 	
 	
 	

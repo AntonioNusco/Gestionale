@@ -51,9 +51,6 @@ public class Utente implements Serializable{
 		this.email = email;
 		this.ruolo = ruolo;
 	}
-
-	public Utente() {
-	}
 	
 	
 	

@@ -62,10 +62,6 @@ public class Rescan implements Serializable{
 		this.exist = exist;
 		this.rkd = rkd;
 	}
-
-	public Rescan() {
-	}
-	
 	
 	
 	
