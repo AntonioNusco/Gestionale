@@ -36,6 +36,7 @@ public class UtenteServices {
 
 	}
 	
+<<<<<<< HEAD
 	@POST
 	@Path("add")
 	public boolean add(Utente u) {
@@ -52,5 +53,13 @@ public class UtenteServices {
 //		return Response.created(new URI("api/utente/" + u.getIdUtente())).build();
 //	}
 
+=======
+//	@POST
+//	@Path("add")
+//	public Response add(Utente u) {
+//		
+//		return Response.created()
+//	} 
+>>>>>>> 9e9cc8505a4b0ff7ec6a9059886e79186a7bd33f
 
 
