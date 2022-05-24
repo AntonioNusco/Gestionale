@@ -5,6 +5,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.spi.Configurator;
 import org.apache.tomcat.util.json.JSONParser;
 import org.glassfish.jersey.*;
+import org.topnetwork.gestionale.appconfig.UtenteServices;
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
@@ -13,6 +14,7 @@ import org.topnetwork.gestionale.utility.Utils;
 
 import static org.topnetwork.gestionale.utility.Utils.*;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -26,19 +28,19 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Utente u = new Utente("filippo","vescovo","newpsw", "email",true);
+		Utente u = new Utente("sasi","vescovo","newpsw", "email",true);
 			
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
-		EntityManager em = emf.createEntityManager();
-		try {
-			EntityTransaction et = em.getTransaction();
-			et.begin();
-			em.persist(u);
-			et.commit();
-			System.out.println("ok");
-		} catch (RollbackException e) {
-			System.out.println("col cazzo");
-		}
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
+//		EntityManager em = emf.createEntityManager();
+//		try {
+//			EntityTransaction et = em.getTransaction();
+//			et.begin();
+//			em.persist(u);
+//			et.commit();
+//			System.out.println("ok");
+//		} catch (RollbackException e) {
+//			System.out.println("col cazzo");
+//		}
 		
 		Utils.utenteLoggato = u;
 
@@ -59,11 +61,8 @@ public class Test {
 //		}
 
 		
-		System.out.println(new Generics<Applicazione>().queryList(a));
+		new UtenteServices().add(u);
 		
-		
-//		
-//		trovaStoPorcoDio(1);
 		
 	
 		

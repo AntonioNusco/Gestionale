@@ -1,6 +1,7 @@
 package org.topnetwork.gestionale.appconfig;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,10 +38,19 @@ public class UtenteServices {
 	
 	@POST
 	@Path("add")
-	public Response add(Utente u) {
-		
-		return Response.created()
+	public boolean add(Utente u) {
+		if(u.isRuolo()) return JpaDaoFactory.getDaoFactory().save(u);
+		else return false;
 	}
+	
+	
+
+	}
+	
+//	@POST
+//	public Response add(Utente u) throws URISyntaxException {
+//		return Response.created(new URI("api/utente/" + u.getIdUtente())).build();
+//	}
 
 
-}
+
