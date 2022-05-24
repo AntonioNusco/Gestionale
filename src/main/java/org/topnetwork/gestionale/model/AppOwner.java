@@ -62,6 +62,11 @@ public class AppOwner implements Serializable {
 		this.cell = cell;
 		this.dsUnit = dsUnit;
 	}
+
+	public AppOwner() {
+	}
+	
+	
 	
 	
 	

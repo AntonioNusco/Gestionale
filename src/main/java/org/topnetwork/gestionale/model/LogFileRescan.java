@@ -47,5 +47,8 @@ public class LogFileRescan implements Serializable{
 		this.data = data;
 	}
 	
+	public LogFileRescan() {
+	}
+	
 	
 }

@@ -59,7 +59,7 @@ public class Test {
 //		}
 
 		
-		System.out.println(new Generics<Applicazione>().queryList(a));
+		//System.out.println(new Generics<Applicazione>().queryList(a));
 		
 		
 //		
