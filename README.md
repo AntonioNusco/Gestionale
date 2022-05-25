@@ -1,3 +1,2 @@
 # Gestionale
- grande giornata produttiva
- benvenuto patatone nappi
+alt R
