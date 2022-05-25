@@ -28,7 +28,7 @@ public class UtenteServices {
 		utenti = JpaDaoFactory.getDaoFactory().queryList(new Utente());
 		ObjectMapper om = new ObjectMapper();
 		try {
-			return om.writerWithDefaultPrettyPrinter().writeValueAsString(utenti);
+			return om.writeValueAsString(utenti);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
