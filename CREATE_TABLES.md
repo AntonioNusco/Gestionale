@@ -2,6 +2,8 @@
 
 create database progettotopnetwork encoding 'win1252' template template0;
 
+\c progettotopnetwork;
+
 
  create table if not exists "applicazione" (
     "idapplicazione" serial primary key,
