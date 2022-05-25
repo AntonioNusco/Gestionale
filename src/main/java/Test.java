@@ -10,25 +10,18 @@ import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
-import org.topnetwork.gestionale.utility.Utils;
 
 import static org.topnetwork.gestionale.utility.Utils.*;
 
 import java.net.URISyntaxException;
-import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.RollbackException;
 
 public class Test {
 		
 	
 	public static void main(String[] args) {
 		
-		Utente u = new Utente("sasi","vescovo","newpsw", "email",true);
+		Utente u2 = new Utente("trisess","postul","querty","mati@mazze.it",true);
 			
 //		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
 //		EntityManager em = emf.createEntityManager();
@@ -42,12 +35,12 @@ public class Test {
 //			System.out.println("col cazzo");
 //		}
 		
-		Utils.utenteLoggato = u;
+		utenteLoggato = u2;
 
 		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
 				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 		Rescan r= new Rescan();
-	//	System.out.println(JpaDaoFactory.getDaoFactory().save(a));
+//		System.out.println(JpaDaoFactory.getDaoFactory().save(a));
 //		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
 //		System.out.println(Utils.queryList(u).toString());
 //		System.out.println(Utils.queryList(r).toString());
@@ -61,10 +54,22 @@ public class Test {
 //		}
 
 		
-		new UtenteServices().add(u);
+	
+			try {
+				System.out.println(new UtenteServices().add(u2));
+				System.out.println("si");
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			}
+
 		
 		
 	
+		
+		
+		
+		
+		
 		
 
 		
@@ -83,22 +88,6 @@ public class Test {
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

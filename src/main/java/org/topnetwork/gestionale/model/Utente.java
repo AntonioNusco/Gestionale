@@ -44,13 +44,15 @@ public class Utente implements Serializable{
 	}
 	
 	public Utente(String nome, String cognome, String password, String email, boolean ruolo) {
-		super();
+		
 		this.nome = nome;
 		this.cognome = cognome;
 		this.password = password;
 		this.email = email;
 		this.ruolo = ruolo;
 	}
+
+	
 
 	
 	

@@ -9,7 +9,7 @@ public class Utils {
 
 	private static final Logger logger = Logger.getLogger(Utils.class);
 
-	public static Utente utenteLoggato;
+	public static Utente utenteLoggato=new Utente(); 
 
 	public static void logInfo(Utente u) {
 		PropertyConfigurator.configure("log4j.properties");

@@ -10,5 +10,4 @@ public interface UtenteDao {
 	boolean registrazioneModificatore(String nome, String cognome, String password, String email);
 	
 	
-	
 }

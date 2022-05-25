@@ -15,13 +15,14 @@ import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Utente;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("utente")
 public class UtenteServices {
 
 	List<Utente> utenti = new ArrayList<Utente>();
-	
+
 	@GET
 	@Path("lista")
 	public String listaUtenti() {
@@ -33,33 +34,52 @@ public class UtenteServices {
 			e.printStackTrace();
 			return null;
 		}
-
 	}
-	
-<<<<<<< HEAD
-	@POST
-	@Path("add")
-	public boolean add(Utente u) {
-		if(u.isRuolo()) return JpaDaoFactory.getDaoFactory().save(u);
-		else return false;
-	}
-	
-	
 
-	}
-	
-//	@POST
-//	public Response add(Utente u) throws URISyntaxException {
-//		return Response.created(new URI("api/utente/" + u.getIdUtente())).build();
-//	}
-
-=======
 //	@POST
 //	@Path("add")
-//	public Response add(Utente u) {
-//		
-//		return Response.created()
-//	} 
->>>>>>> 9e9cc8505a4b0ff7ec6a9059886e79186a7bd33f
+//	public boolean add(Utente u) {
+//		return JpaDaoFactory.getDaoFactory().save(u);
+//	}
+//}
 
-
+//	@POST
+//	@Path("add")
+//	public Response add(String s) throws URISyntaxException {
+//		ObjectMapper om = new ObjectMapper();
+//		Utente u = null;
+//		try {
+//			u = om.readValue(s,Utente.class);
+//		} catch (JsonMappingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		JpaDaoFactory.getDaoFactory().save(u);
+//		return Response.created(new URI("api/utente/" + u.getIdUtente())).build();
+//	}
+	
+	
+	@POST
+	@Path("add")
+	public Response add(Utente u) throws URISyntaxException {
+		JpaDaoFactory.getDaoFactory().save(u);
+		return Response.created(new URI("api/utente/" + u.getIdUtente())).build();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
