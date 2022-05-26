@@ -33,12 +33,15 @@ public class LogFileRescan implements Serializable{
 	private String nuovoValore;
 	@Column(name="data")
 	private LocalDateTime data;
+	@Column
+	private String action;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
 	private Utente utente;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idRescan", referencedColumnName = "idRescan")
 	private Rescan rescan;
+	
 	public LogFileRescan(int idLogRescan, String valorePrecedente, String nuovoValore, LocalDateTime data) {
 		super();
 		this.idLogRescan = idLogRescan;

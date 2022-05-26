@@ -32,7 +32,7 @@ public class LogFileApp implements Serializable{
 	@Column
 	private Date data;
 	@Column
-	private String valorePrecedente, nuovoValore;
+	private String valorePrecedente, nuovoValore, action;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
 	private Utente utente;

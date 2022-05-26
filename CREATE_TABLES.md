@@ -1320,6 +1320,10 @@ INSERT INTO "monitoraggio" VALUES
    alter table applicazione alter column noteappowner type text;
    
    update applicazione set noteonboarding = '18/05 Venerdi 21 dovrebbero fornire SC e doc aggiornati Ticket 29812 per mancata individuazione oggetti java' where idapplicazione=140;
+   
+   alter table logfileapp add action text;
+   
+   alter table logfilerescan add action text;
 
 
 
