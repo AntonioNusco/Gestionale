@@ -10,6 +10,7 @@ import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
+import org.topnetwork.gestionale.utility.Utils;
 
 import static org.topnetwork.gestionale.utility.Utils.*;
 
@@ -21,7 +22,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Utente u2 = new Utente("trisess","postul","querty","mati@mazze.it",true);
+		Utente u2 = new Utente("franco","pippo","querty","mati@mazze.it",true);
 			
 //		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
 //		EntityManager em = emf.createEntityManager();
@@ -54,16 +55,19 @@ public class Test {
 //		}
 
 		
-	
-			try {
-				System.out.println(new UtenteServices().add(u2));
-				System.out.println("si");
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			}
+//	
+//			try {
+//				System.out.println(new UtenteServices().add(u2));
+//				System.out.println("si");
+//			} catch (URISyntaxException e) {
+//				e.printStackTrace();
+//			}
+//
+//		
+		String s= "2022-05-26 12:39:29 | INFO  | franco | pippo | mati@mazze.it | ha effettuato l'accesso";
 
 		
-		
+		splitPotentissimo(s);
 	
 		
 		

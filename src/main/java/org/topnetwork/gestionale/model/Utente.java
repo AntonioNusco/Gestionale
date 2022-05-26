@@ -39,7 +39,7 @@ public class Utente implements Serializable{
 	private Set<LogFileRescan> logFile;
 	@Override
 	public String toString() {
-		return "Nome Utente : "  + nome + " " + cognome + " , Email : " + email;
+		return nome + " | " + cognome + " | " + email ;
 		
 	}
 	

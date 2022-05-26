@@ -72,7 +72,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.persist(e);
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString(), " HA INSERITO " + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " | HA INSERITO | " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
@@ -103,7 +103,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString(), " HA ELIMINATO " + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " | HA ELIMINATO | " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
@@ -119,7 +119,7 @@ public class JpaDaoFactory extends DaoFactory {
 			et.begin();
 			em.remove(e);
 			et.commit();
-			Utils.logWarn(Utils.utenteLoggato.toString(), " HA ELIMINATO DEFINITIVAMENTE" + e);
+			Utils.logWarn(Utils.utenteLoggato.toString(), " | HA ELIMINATO DEFINITIVAMENTE | " + e);
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();

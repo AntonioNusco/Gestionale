@@ -1,22 +1,22 @@
 package org.topnetwork.gestionale.utility;
 
+import java.time.LocalDateTime;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.topnetwork.gestionale.model.LogFileApp;
 import org.topnetwork.gestionale.model.Utente;
+
 
 public class Utils {
 
 	private static final Logger logger = Logger.getLogger(Utils.class);
 
-	public static Utente utenteLoggato=new Utente(); 
+	public static Utente utenteLoggato = new Utente();
 
 	public static void logInfo(Utente u) {
 		PropertyConfigurator.configure("log4j.properties");
-		if (u.isRuolo())
-			logger.info(u.toString() + " , Ruolo : MODIFICATORE ha effettuato l'accesso");
-		if (!u.isRuolo())
-			logger.info(u.toString() + " , Ruolo : VISUALIZZATORE ha effettuato l'accesso");
+		logger.info(u.toString() + " | ha effettuato l'accesso");
 	}
 
 	public static void logWarn(Object o, String s) {
@@ -36,8 +36,7 @@ public class Utils {
 //		queryList = (List<Object>) q.getResultList();
 //		return queryList;
 //	}
-	
-	
+
 //	public static void trovaStoPorcoDio(int id){
 //		String a;
 //		EntityManager em = JpaDaoFactory.getConnection();
@@ -49,8 +48,8 @@ public class Utils {
 //		}
 //		
 //	}
-	
-	//il problema potrebbe essere nelle jointable (vedere cronologia chrome)
+
+	// il problema potrebbe essere nelle jointable (vedere cronologia chrome)
 
 	public static String getNomeClasse(String s) {
 //		String stringa;
@@ -58,9 +57,9 @@ public class Utils {
 //		stringa = s.substring(index+1, s.length());
 //		return stringa;
 
-		 String[] array = s.split("\\.");
-				 System.out.println(array.length);
-		 return array[array.length-1];
+		String[] array = s.split("\\.");
+		System.out.println(array.length);
+		return array[array.length - 1];
 
 //		String stringa1 = "";
 //		String stringa2 = "";
@@ -78,16 +77,25 @@ public class Utils {
 //		return stringa2;
 
 	}
+	
+	public static String splitPotentissimo(String s) {
+		LogFileApp lfa;
+		String[] array = s.split(" | ");
+		
+			LocalDateTime dt = (LocalDateTime) array[0];
+			String nome = array[2];
+			String cognome = array[3];
+			
+			
+			
+		
+	}
 
-	//query per visualizzatore non devono vedere quelli che non esistono
-	//il modificatore si e può anche modificarlo
-	
-	
-	
-	
-	
-	
-	
+	// query per visualizzatore non devono vedere quelli che non esistono
+	// il modificatore si e può anche modificarlo
+
+
+
 	
 	
 	
