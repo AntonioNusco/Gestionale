@@ -52,6 +52,12 @@ public class Utente implements Serializable{
 		this.ruolo = ruolo;
 	}
 
+	public Utente(String nome, String cognome, String email) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+	}
+
 	
 
 	

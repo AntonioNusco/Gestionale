@@ -64,10 +64,10 @@ public class Test {
 //			}
 //
 //		
-		String s= "2022-05-26 12:39:29 | INFO  | franco | pippo | mati@mazze.it | ha effettuato l'accesso";
+		String s= "2022-05-26 12:39:29| INFO | franco | pippo | mati@mazze.it | ha effettuato l'accesso";
 
 		
-		splitPotentissimo(s);
+		System.out.println(splitPotentissimo(s).toString());
 	
 		
 		

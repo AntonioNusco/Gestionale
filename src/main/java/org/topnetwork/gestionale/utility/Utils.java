@@ -1,6 +1,10 @@
 package org.topnetwork.gestionale.utility;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -13,6 +17,7 @@ public class Utils {
 	private static final Logger logger = Logger.getLogger(Utils.class);
 
 	public static Utente utenteLoggato = new Utente();
+	
 
 	public static void logInfo(Utente u) {
 		PropertyConfigurator.configure("log4j.properties");
@@ -78,19 +83,9 @@ public class Utils {
 
 	}
 	
-	public static String splitPotentissimo(String s) {
-		LogFileApp lfa;
-		String[] array = s.split(" | ");
-		
-			LocalDateTime dt = (LocalDateTime) array[0];
-			String nome = array[2];
-			String cognome = array[3];
-			
-			
-			
-		
-	}
 
+	
+	
 	// query per visualizzatore non devono vedere quelli che non esistono
 	// il modificatore si e può anche modificarlo
 
