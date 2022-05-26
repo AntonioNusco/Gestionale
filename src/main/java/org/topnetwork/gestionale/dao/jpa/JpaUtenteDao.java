@@ -20,7 +20,7 @@ private static JpaUtenteDao instance = new JpaUtenteDao();
 
 	@Override
 	public Utente login(String email,String password) {
-		//TODO controlli nella servlet
+		//TODO controlli
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("Select u from utente where u.email = :email and u.password = :password");
 		q.setParameter("email", email);
