@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+
 import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.model.LogFileApp;
 import org.topnetwork.gestionale.model.Utente;
@@ -36,10 +40,18 @@ public class JpaLogFileAppDao implements LogFileAppDao {
 		String action = array[5];
 
 		LocalDateTime date = LocalDateTime.parse(dt, DATE_FORMAT);
+		
+		Utente a;
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createQuery("select u from Utente u where u.email = :x");
+		try {
+			a = (Utente) q.setParameter("x", email).getSingleResult();
+		}catch(NoResultException e){
+			e.printStackTrace();
+			return null;
+		}
 
-		Utente u = new Utente(nome, cognome, email);
-
-		LogFileApp lfa = new LogFileApp(date, u, action);
+		LogFileApp lfa = new LogFileApp(date, a, action);
 		return lfa;
 	}
 
