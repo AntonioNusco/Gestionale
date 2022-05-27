@@ -1325,9 +1325,14 @@ INSERT INTO "monitoraggio" VALUES
    
    alter table logfilerescan add action text;
    
-   ALTER TABLE logfileapp ALTER COLUMN data TYPE varchar(255);
-   
-   ALTER TABLE logfilerescan ALTER COLUMN data TYPE varchar(255);
+ALTER TABLE logfilerescan ALTER COLUMN data TYPE date USING data::date;
+
+ALTER TABLE logfileapp ALTER COLUMN data TYPE date USING data::date;
+
+ALTER TABLE logfileapp ALTER COLUMN nuovovalore DROP not null;
+
+ALTER TABLE logfileapp ALTER COLUMN valoreprecedente DROP not null;
+
 
 
 

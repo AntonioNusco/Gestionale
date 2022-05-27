@@ -63,7 +63,6 @@ public class Utils {
 //		return stringa;
 
 		String[] array = s.split("\\.");
-		System.out.println(array.length);
 		return array[array.length - 1];
 
 //		String stringa1 = "";

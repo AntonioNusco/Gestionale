@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,11 +35,11 @@ public class LogFileApp implements Serializable{
 	private LocalDateTime data;
 	@Column
 	private String valorePrecedente, nuovoValore, action;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
 	private Utente utente;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "FK_idAppliczione", referencedColumnName = "idApplicazione")
+	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+	@JoinColumn(name = "FK_idApp", referencedColumnName = "idApplicazione")
 	private Applicazione applicazione;
 	
 	public LogFileApp(int idLogApp,LocalDateTime data, String valorePrecedente, String nuovoValore) {

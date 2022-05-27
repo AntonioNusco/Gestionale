@@ -6,8 +6,10 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
 
 import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.model.LogFileApp;
@@ -26,32 +28,38 @@ public class JpaLogFileAppDao implements LogFileAppDao {
 
 	public LogFileApp lfaObjectInfoCreation(String s) {
 
-		String[] array = s.split("\\|");
+		Utente a;
 
 		final DateTimeFormatter DATE_FORMAT = new DateTimeFormatterBuilder()
 				.appendPattern("yyyy-MM-dd[ [HH][:mm][:ss]]").parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
 				.parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0).parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
 				.toFormatter();
 
+		String[] array = s.split("\\|");
+
 		String dt = array[0];
-		String nome = array[2];
-		String cognome = array[3];
-		String email = array[4];
+		String email = array[4].trim();
 		String action = array[5];
 
 		LocalDateTime date = LocalDateTime.parse(dt, DATE_FORMAT);
-		
-		Utente a;
+
 		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("select u from Utente u where u.email = :x");
+		EntityTransaction et = em.getTransaction();
+		Query q = em.createQuery("select u from Utente u where u.email =:email");
 		try {
-			a = (Utente) q.setParameter("x", email).getSingleResult();
-		}catch(NoResultException e){
+			a = (Utente) q.setParameter("email", email).getSingleResult();
+		} catch (NoResultException e) {
 			e.printStackTrace();
 			return null;
 		}
-
 		LogFileApp lfa = new LogFileApp(date, a, action);
+		try {
+			et.begin();
+			em.persist(lfa);
+			et.commit();
+		} catch (RollbackException e) {
+			e.printStackTrace();
+		}
 		return lfa;
 	}
 

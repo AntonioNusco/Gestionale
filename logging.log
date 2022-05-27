@@ -24,3 +24,12 @@
 2022-05-26 12:36:00 | INFO  | franco | pippo | mati@mazze.it | MODIFICATORE | ha effettuato l'accesso
 2022-05-26 12:39:28 | WARN  | franco | pippo | mati@mazze.it | HA INSERITO | franco | pippo | mati@mazze.it
 2022-05-26 12:39:29 | INFO  | franco | pippo | mati@mazze.it | ha effettuato l'accesso
+2022-05-27 10:03:36 | WARN  | france | naspi | fili@pigna.it | HA INSERITO | france | naspi | fili@pigna.it
+2022-05-27 10:03:37 | INFO  | HHH000204: Processing PersistenceUnitInfo [name: Gestionale]
+2022-05-27 10:03:37 | WARN  | HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-05-27 10:03:37 | INFO  | HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost/progettotopnetwork]
+2022-05-27 10:03:37 | INFO  | HHH10001001: Connection properties: {password=****, user=postgres}
+2022-05-27 10:03:37 | INFO  | HHH10001003: Autocommit mode: false
+2022-05-27 10:03:37 | INFO  | HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-05-27 10:03:37 | INFO  | HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-27 10:03:37 | INFO  | HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

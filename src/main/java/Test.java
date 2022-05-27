@@ -22,7 +22,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Utente u2 = new Utente("franco","pippo","querty","mati@mazze.it",true);
+		Utente u2 = new Utente("france","naspi","gdgreg","fili@pigna.it",true);
 			
 //		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
 //		EntityManager em = emf.createEntityManager();
@@ -55,19 +55,20 @@ public class Test {
 //		}
 
 		
-//	
+	
 //			try {
 //				System.out.println(new UtenteServices().add(u2));
 //				System.out.println("si");
 //			} catch (URISyntaxException e) {
 //				e.printStackTrace();
 //			}
-//
-//		
-		String s= "2022-05-26 12:39:29| INFO | franco | pippo | mati@mazze.it | ha effettuato l'accesso";
 
 		
-		System.out.println(splitPotentissimo(s).toString());
+		String s= "2022-05-26 12:39:29| INFO | france | naspi | fili@pigna.it | ha effettuato l'accesso";
+
+		
+		System.out.println(JpaDaoFactory.getDaoFactory().getLogFileAppDao().lfaObjectInfoCreation(s));
+		//System.out.println(JpaDaoFactory.getDaoFactory().save(JpaDaoFactory.getDaoFactory().getLogFileAppDao().lfaObjectInfoCreation(s)));
 	
 		
 		

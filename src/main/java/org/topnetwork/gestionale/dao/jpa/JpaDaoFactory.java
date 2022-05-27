@@ -79,7 +79,8 @@ public class JpaDaoFactory extends DaoFactory {
 			return false;
 		}
 	}
-
+	
+	// provare senza ET
 	// mostra ulteriori infromazioni
 	// come stringa al front
 
