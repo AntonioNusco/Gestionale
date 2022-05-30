@@ -51,15 +51,15 @@ public class UtenteServices {
 	}
 	
 	
-	@POST
-	@Path("login")
-	public Response login(String email,String passw) throws URISyntaxException {
-		HttpSession session = httpRequest.getSession();
-			Utente u = JpaUtenteDao.getInstance().login(email, passw);
-			session.setAttribute("utenteloggato", u);
-			if(u.isRuolo()) return Response.created(new URI(null)).build();
-			return Response.created(new URI(null)).build();
-	}
+//	@POST
+//	@Path("login")
+//	public Response login(String email,String passw) throws URISyntaxException {
+//		HttpSession session = httpRequest.getSession();
+//			Utente u = JpaUtenteDao.getInstance().login(email, passw);
+//			session.setAttribute("utenteloggato", u);
+//			if(u.isRuolo()) return Response.created(new URI(null)).build();
+//			return Response.created(new URI(null)).build();
+//	}
 	
 	
 	
