@@ -12,7 +12,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
@@ -32,6 +34,7 @@ public class UtenteServices {
 
 	@GET
 	@Path("lista")
+	@Produces(MediaType.APPLICATION_JSON)
 	public String listaUtenti() {
 		utenti = JpaDaoFactory.getDaoFactory().queryList(new Utente());
 		ObjectMapper om = new ObjectMapper();
