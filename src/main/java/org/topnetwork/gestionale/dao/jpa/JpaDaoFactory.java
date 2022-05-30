@@ -1,5 +1,11 @@
 package org.topnetwork.gestionale.dao.jpa;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +15,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.RollbackException;
 
+import org.hibernate.annotations.Check;
 import org.topnetwork.gestionale.dao.DaoFactory;
 import org.topnetwork.gestionale.dao.model.AppOwnerDao;
 import org.topnetwork.gestionale.dao.model.ApplicazioneDao;
@@ -21,13 +28,20 @@ import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.utility.*;
 
 public class JpaDaoFactory extends DaoFactory {
+	
+	static Connection c = null;
+	static Statement stmt = null;
 
 	public static EntityManager getConnection() {
 		try {
 			Class.forName("org.postgresql.Driver");
-		} catch (ClassNotFoundException e) {
+			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/progettotopnetwork","postgres", "root");
+			System.out.println("Successfully Connected.");
+			stmt = c.createStatement();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestionale");
 		EntityManager em = emf.createEntityManager();
 		return em;
@@ -183,6 +197,28 @@ public class JpaDaoFactory extends DaoFactory {
 		Query q = em.createNativeQuery("Select * from " + Utils.getNomeClasse(e.getClass().toString()));
 		queryList = (List<E>) q.getResultList();
 		return queryList;
+	}
+
+	@Override
+	public List<Applicazione> queryApp() {
+		List<Applicazione> app = new ArrayList<Applicazione>();
+//		ResultSet rs = stmt.executeQuery( "select * from applicazione");
+		getConnection();
+		try {
+			ResultSet rs = stmt.executeQuery( "select * from applicazione");
+			
+			while (rs.next()) {
+				Applicazione a = new Applicazione();
+				app.add(a);
+				System.out.print(app);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.print(app);
+		return app;
 	}
 	
 	

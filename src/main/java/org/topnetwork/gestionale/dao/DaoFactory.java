@@ -9,6 +9,7 @@ import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.dao.model.LogFileRescanDao;
 import org.topnetwork.gestionale.dao.model.RescanDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
+import org.topnetwork.gestionale.model.Applicazione;
 
 
 public abstract class DaoFactory {
@@ -31,6 +32,8 @@ public abstract class DaoFactory {
 	public abstract <E> boolean update(E e, String nomeColonna, E nuovoValore);
 	
 	public abstract <E> List<E> queryList(E e);
+	
+	public abstract List<Applicazione> queryApp();
 
 	
 	

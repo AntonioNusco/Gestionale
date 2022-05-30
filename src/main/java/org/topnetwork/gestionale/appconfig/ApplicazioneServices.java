@@ -16,6 +16,7 @@ import org.topnetwork.gestionale.model.Applicazione;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 @Path("applicazione")
 public class ApplicazioneServices {
@@ -23,12 +24,10 @@ public class ApplicazioneServices {
 	@GET
 	@Path("lista")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listaApplicazioni() throws JsonProcessingException {
-		List<Applicazione> applicazioni = JpaDaoFactory.getDaoFactory().queryList(new Applicazione());
-		JSONObject json = new JSONObject();
-		json.put("applicazioni", applicazioni);
-		return Response.status(Response.Status.OK).entity(json.toString()).build();
-
+	public String listaApplicazioni() throws JsonProcessingException {
+		List<Applicazione> applicazioni = JpaDaoFactory.getDaoFactory().queryApp();
+		Gson gson = new Gson();
+		return gson.toJson(applicazioni);
 	}
 	
 	
