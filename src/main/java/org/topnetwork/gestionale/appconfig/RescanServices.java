@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Rescan;
@@ -16,6 +18,7 @@ public class RescanServices {
 
 	@GET
 	@Path("lista")
+	@Produces(MediaType.APPLICATION_JSON)
 	public String listaRescan() {
 		List<Rescan> rescans = JpaDaoFactory.getDaoFactory().queryList(new Rescan());
 		ObjectMapper om = new ObjectMapper();
