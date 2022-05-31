@@ -1,5 +1,6 @@
 package org.topnetwork.gestionale.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
@@ -10,6 +11,8 @@ import org.topnetwork.gestionale.dao.model.LogFileRescanDao;
 import org.topnetwork.gestionale.dao.model.RescanDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
 import org.topnetwork.gestionale.model.Applicazione;
+import org.topnetwork.gestionale.model.Rescan;
+import org.topnetwork.gestionale.model.Utente;
 
 
 public abstract class DaoFactory {
@@ -34,7 +37,11 @@ public abstract class DaoFactory {
 	public abstract <E> List<E> queryList(E e);
 	
 	public abstract List<Applicazione> queryApp();
-
 	
+	public abstract ArrayList<Applicazione> queryApp2();
+	
+	public abstract ArrayList<Rescan> queryRescan();
+
+	public abstract ArrayList<Utente> queryUtenti();
 	
 }

@@ -25,9 +25,18 @@ public class ApplicazioneServices {
 	@Path("lista")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listaApplicazioni() throws JsonProcessingException {
-		List<Applicazione> applicazioni = JpaDaoFactory.getDaoFactory().queryApp();
-		Gson gson = new Gson();
-		return gson.toJson(applicazioni);
+		List<Applicazione> applicazioni = JpaDaoFactory.getDaoFactory().queryApp2();
+//		Gson gson = new Gson();
+//		System.out.print(applicazioni.size());
+//		return gson.toJson(applicazioni);
+		ObjectMapper om = new ObjectMapper();
+		try {
+			System.out.print(om.writeValueAsString(applicazioni));
+			return om.writeValueAsString(applicazioni);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	

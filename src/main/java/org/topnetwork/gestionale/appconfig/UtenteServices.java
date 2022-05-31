@@ -23,11 +23,12 @@ import org.topnetwork.gestionale.model.Utente;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 @Path("utente")
 public class UtenteServices {
 
-	List<Utente> utenti = new ArrayList<Utente>();
+//	List<Utente> utenti = new ArrayList<Utente>();
 	
 	@Context
 	private HttpServletRequest httpRequest;
@@ -36,7 +37,9 @@ public class UtenteServices {
 	@Path("lista")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listaUtenti() {
-		utenti = JpaDaoFactory.getDaoFactory().queryList(new Utente());
+		List<Utente> utenti = JpaDaoFactory.getDaoFactory().queryUtenti();
+//		Gson gson = new Gson();
+//		return gson.toJson(utenti);
 		ObjectMapper om = new ObjectMapper();
 		try {
 			return om.writeValueAsString(utenti);

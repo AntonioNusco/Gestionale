@@ -12,9 +12,15 @@ import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
 import org.topnetwork.gestionale.utility.Utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import static org.topnetwork.gestionale.utility.Utils.*;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Test {
@@ -37,9 +43,12 @@ public class Test {
 //		}
 		
 		utenteLoggato = u2;
-
-		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
-				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		
+		
+		
+		
+		
+		
 		Rescan r= new Rescan();
 //		System.out.println(JpaDaoFactory.getDaoFactory().save(a));
 //		System.out.println(JpaDaoFactory.getDaoFactory().logicDelete(a));
@@ -67,11 +76,11 @@ public class Test {
 		String s= "2022-05-26 12:39:29| INFO | france | naspi | fili@pigna.it | ha effettuato l'accesso";
 
 		
-		System.out.println(JpaDaoFactory.getDaoFactory().getLogFileAppDao().lfaObjectInfoCreation(s));
+//		System.out.println(JpaDaoFactory.getDaoFactory().getLogFileAppDao().lfaObjectInfoCreation(s));
 		//System.out.println(JpaDaoFactory.getDaoFactory().save(JpaDaoFactory.getDaoFactory().getLogFileAppDao().lfaObjectInfoCreation(s)));
 	
 		
-		
+//		qualcosa();
 		
 		
 		
@@ -93,6 +102,27 @@ public class Test {
 		
 		
 	}
+	
+//	public static String qualcosa() {
+//		List<Applicazione> app = new ArrayList<Applicazione>();
+//
+//		Applicazione a = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
+//				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+//		
+//		Applicazione a2 = new Applicazione(0, 0, null, null, null, null, null, null, null, null, false, false, "ciao", null, null, null, null, null, null, null,
+//				null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+//		
+//		app.add(a);
+//		app.add(a2);
+//		ObjectMapper om = new ObjectMapper();
+//		try {
+//			System.out.print(om.writeValueAsString(app));
+//			return om.writeValueAsString(app);
+//		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//	}
 	
 	
 	

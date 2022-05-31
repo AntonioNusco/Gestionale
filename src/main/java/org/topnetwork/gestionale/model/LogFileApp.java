@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,19 +32,21 @@ public class LogFileApp implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idLogApp;
+	private Integer idLogApp;
 	@Column
 	private LocalDateTime data;
 	@Column
 	private String valorePrecedente, nuovoValore, action;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
+	@JsonBackReference
 	private Utente utente;
 	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	@JoinColumn(name = "FK_idApp", referencedColumnName = "idApplicazione")
+	@JsonBackReference
 	private Applicazione applicazione;
 	
-	public LogFileApp(int idLogApp,LocalDateTime data, String valorePrecedente, String nuovoValore) {
+	public LogFileApp(Integer idLogApp, LocalDateTime data, String valorePrecedente, String nuovoValore) {
 		this.idLogApp = idLogApp;
 		this.data = data;
 		this.valorePrecedente = valorePrecedente;
@@ -58,7 +62,7 @@ public class LogFileApp implements Serializable{
 		this.nuovoValore = nuovoValore;
 	}
 	
-	public LogFileApp(LocalDateTime data, Utente u,String action) {
+	public LogFileApp(LocalDateTime data, Utente u, String action) {
 		this.data = data;
 		this.utente=u;
 		this.action=action;

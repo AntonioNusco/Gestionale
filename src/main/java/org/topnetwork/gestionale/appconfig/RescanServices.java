@@ -12,6 +12,7 @@ import org.topnetwork.gestionale.model.Rescan;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 @Path("rescan")
 public class RescanServices {
@@ -20,9 +21,12 @@ public class RescanServices {
 	@Path("lista")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listaRescan() {
-		List<Rescan> rescans = JpaDaoFactory.getDaoFactory().queryList(new Rescan());
+		List<Rescan> rescans = JpaDaoFactory.getDaoFactory().queryRescan();
+//		Gson gson = new Gson();
+//		return gson.toJson(rescans);
 		ObjectMapper om = new ObjectMapper();
 		try {
+			System.out.print(om.writeValueAsString(rescans));
 			return om.writeValueAsString(rescans);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();

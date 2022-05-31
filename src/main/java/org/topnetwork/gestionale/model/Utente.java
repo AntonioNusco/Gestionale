@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,14 +32,16 @@ import lombok.ToString;
 public class Utente implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idUtente;
+	private Integer idUtente;
 	@Column
 	private String nome, cognome, password, email;
 	@Column
 	private boolean ruolo;
 	@OneToMany(mappedBy = "utente")
+	@JsonManagedReference
 	private Set<LogFileApp> logfiles;
 	@OneToMany(mappedBy = "utente")
+	@JsonManagedReference
 	private Set<LogFileRescan> logFile;
 	@Override
 	public String toString() {

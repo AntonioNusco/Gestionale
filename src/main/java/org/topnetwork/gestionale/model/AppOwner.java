@@ -19,6 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 
 
@@ -32,7 +34,7 @@ public class AppOwner implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idAppOwner;
+	private Integer idAppOwner;
 	@Column(name="nome")
 	private String nome;
 	@Column(name="cognome")
@@ -44,6 +46,7 @@ public class AppOwner implements Serializable {
 	@Column(name="dsUnit")
 	private String dsUnit;
 	@OneToMany(mappedBy="appOwner")
+	@JsonManagedReference
 	private Set<Rescan> appOwners;
 	@ManyToMany
 	@JoinTable(
@@ -51,9 +54,9 @@ public class AppOwner implements Serializable {
 			joinColumns = @JoinColumn(name="fk_idAppOwner"),
 			inverseJoinColumns = @JoinColumn(name = "fk_idApplicazione")
 		)
-	private Set<Applicazione> applications;
+	private Set<Applicazione> applicazione;
 	
-	public AppOwner(int idAppOwner, String nome, String cognome, String email, String cell, String dsUnit) {
+	public AppOwner(Integer idAppOwner, String nome, String cognome, String email, String cell, String dsUnit) {
 		super();
 		this.idAppOwner = idAppOwner;
 		this.nome = nome;

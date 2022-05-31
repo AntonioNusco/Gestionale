@@ -25,6 +25,7 @@ import org.topnetwork.gestionale.dao.model.RescanDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
 import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
+import org.topnetwork.gestionale.model.Utente;
 import org.topnetwork.gestionale.utility.*;
 
 public class JpaDaoFactory extends DaoFactory {
@@ -196,6 +197,7 @@ public class JpaDaoFactory extends DaoFactory {
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createNativeQuery("Select * from " + Utils.getNomeClasse(e.getClass().toString()));
 		queryList = (List<E>) q.getResultList();
+//		System.out.print(queryList.size());
 		return queryList;
 	}
 
@@ -219,6 +221,36 @@ public class JpaDaoFactory extends DaoFactory {
 		}
 		System.out.print(app);
 		return app;
+	}
+
+	@Override
+	public ArrayList<Rescan> queryRescan() {
+		ArrayList<Rescan> queryList;
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createQuery("Select a from Rescan a");
+		queryList = (ArrayList<Rescan>) q.getResultList();
+//		System.out.print("" + queryList.toString());
+		return queryList;
+	}
+	
+	@Override
+	public ArrayList<Applicazione> queryApp2() {
+		ArrayList<Applicazione> queryList;
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createQuery("Select a from Applicazione a");
+		queryList = (ArrayList<Applicazione>) q.getResultList();
+//		System.out.print("" + queryList.toString());
+		return queryList;
+	}
+	
+	@Override
+	public ArrayList<Utente> queryUtenti() {
+		ArrayList<Utente> queryList;
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createQuery("Select a from Applicazione a");
+		queryList = (ArrayList<Utente>) q.getResultList();
+//		System.out.print("" + queryList.toString());
+		return queryList;
 	}
 	
 	

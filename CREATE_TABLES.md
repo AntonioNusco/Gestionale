@@ -1333,6 +1333,10 @@ ALTER TABLE logfileapp ALTER COLUMN nuovovalore DROP not null;
 
 ALTER TABLE logfileapp ALTER COLUMN valoreprecedente DROP not null;
 
+update applicazione set done = true;
+
+update rescan set ongoing = false;
+
 
 
 
