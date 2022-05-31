@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -11,6 +12,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.RollbackException;
 
+import org.topnetwork.gestionale.dao.model.AppOwnerDao;
 import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.model.LogFileApp;
 import org.topnetwork.gestionale.model.Utente;
@@ -24,6 +26,12 @@ public class JpaLogFileAppDao implements LogFileAppDao {
 
 	public static JpaLogFileAppDao getInstance() {
 		return instance;
+	}
+	
+	@Override
+	public List<LogFileAppDao> getAll() {
+		return JpaDaoFactory.getConnection().createQuery("Select l from LogFileAppDao l").getResultList();
+
 	}
 
 	public LogFileApp lfaObjectInfoCreation(String s) {

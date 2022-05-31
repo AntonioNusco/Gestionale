@@ -37,7 +37,7 @@ public class JpaDaoFactory extends DaoFactory {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/progettotopnetwork","postgres", "root");
-			System.out.println("Successfully Connected.");
+//			System.out.println("Successfully Connected.");
 			stmt = c.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -192,66 +192,66 @@ public class JpaDaoFactory extends DaoFactory {
 	
 	
 	
-	public <E> List<E> queryList(E e) {
-		List<E> queryList;
-		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createNativeQuery("Select * from " + Utils.getNomeClasse(e.getClass().toString()));
-		queryList = (List<E>) q.getResultList();
-//		System.out.print(queryList.size());
-		return queryList;
-	}
+//	public <E> List<E> queryList(E e) {
+//		List<E> queryList;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		Query q = em.createNativeQuery("Select * from " + Utils.getNomeClasse(e.getClass().toString()));
+//		queryList = (List<E>) q.getResultList();
+////		System.out.print(queryList.size());
+//		return queryList;
+//	}
 
-	@Override
-	public List<Applicazione> queryApp() {
-		List<Applicazione> app = new ArrayList<Applicazione>();
-//		ResultSet rs = stmt.executeQuery( "select * from applicazione");
-		getConnection();
-		try {
-			ResultSet rs = stmt.executeQuery( "select * from applicazione");
-			
-			while (rs.next()) {
-				Applicazione a = new Applicazione();
-				app.add(a);
-				System.out.print(app);
-			}
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.print(app);
-		return app;
-	}
+//	@Override
+//	public List<Applicazione> queryApp() {
+//		List<Applicazione> app = new ArrayList<Applicazione>();
+////		ResultSet rs = stmt.executeQuery( "select * from applicazione");
+//		getConnection();
+//		try {
+//			ResultSet rs = stmt.executeQuery( "select * from applicazione");
+//			
+//			while (rs.next()) {
+//				Applicazione a = new Applicazione();
+//				app.add(a);
+//				System.out.print(app);
+//			}
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.print(app);
+//		return app;
+//	}
 
-	@Override
-	public ArrayList<Rescan> queryRescan() {
-		ArrayList<Rescan> queryList;
-		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("Select a from Rescan a");
-		queryList = (ArrayList<Rescan>) q.getResultList();
+//	@Override
+//	public ArrayList<Rescan> queryRescan() {
+//		ArrayList<Rescan> queryList;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		Query q = em.createQuery("Select a from Rescan a");
+//		queryList = (ArrayList<Rescan>) q.getResultList();
 //		System.out.print("" + queryList.toString());
-		return queryList;
-	}
-	
-	@Override
-	public ArrayList<Applicazione> queryApp2() {
-		ArrayList<Applicazione> queryList;
-		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("Select a from Applicazione a");
-		queryList = (ArrayList<Applicazione>) q.getResultList();
+//		return queryList;
+//	}
+//	
+//	@Override
+//	public ArrayList<Applicazione> queryApp2() {
+//		ArrayList<Applicazione> queryList;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		Query q = em.createQuery("Select a from Applicazione a");
+//		queryList = (ArrayList<Applicazione>) q.getResultList();
 //		System.out.print("" + queryList.toString());
-		return queryList;
-	}
-	
-	@Override
-	public ArrayList<Utente> queryUtenti() {
-		ArrayList<Utente> queryList;
-		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("Select a from Applicazione a");
-		queryList = (ArrayList<Utente>) q.getResultList();
+//		return queryList;
+//	}
+//	
+//	@Override
+//	public ArrayList<Utente> queryUtenti() {
+//		ArrayList<Utente> queryList;
+//		EntityManager em = JpaDaoFactory.getConnection();
+//		Query q = em.createQuery("Select a from Applicazione a");
+//		queryList = (ArrayList<Utente>) q.getResultList();
 //		System.out.print("" + queryList.toString());
-		return queryList;
-	}
+//		return queryList;
+//	}
 	
 	
 	

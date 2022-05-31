@@ -34,14 +34,14 @@ public abstract class DaoFactory {
 
 	public abstract <E> boolean update(E e, String nomeColonna, E nuovoValore);
 	
-	public abstract <E> List<E> queryList(E e);
+//	public abstract <E> List<E> queryList(E e);
 	
-	public abstract List<Applicazione> queryApp();
+//	public abstract List<Applicazione> queryApp();
 	
-	public abstract ArrayList<Applicazione> queryApp2();
-	
-	public abstract ArrayList<Rescan> queryRescan();
-
-	public abstract ArrayList<Utente> queryUtenti();
-	
+//	public abstract ArrayList<Applicazione> queryApp2();
+//	
+//	public abstract ArrayList<Rescan> queryRescan();
+//
+//	public abstract ArrayList<Utente> queryUtenti();
+//	
 }

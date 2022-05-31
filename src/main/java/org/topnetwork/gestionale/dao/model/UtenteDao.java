@@ -1,5 +1,8 @@
 package org.topnetwork.gestionale.dao.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.topnetwork.gestionale.model.Utente;
 
 public interface UtenteDao {
@@ -8,6 +11,7 @@ public interface UtenteDao {
 	public boolean registrazione(Utente u);
 	boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email);
 	boolean registrazioneModificatore(String nome, String cognome, String password, String email);
+	List<Utente> getAll();
 	
 	
 }
