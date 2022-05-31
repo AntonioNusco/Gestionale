@@ -43,11 +43,6 @@ public class JpaUtenteDao implements UtenteDao {
 	}
 
 	@Override
-	public boolean registrazioneModificatore(String nome, String cognome, String password, String email) {
-		return registrazione(new Utente(nome, cognome, password, email, true));
-	}
-
-	@Override
 	public boolean registrazione(Utente u) {
 		return DaoFactory.getDaoFactory().save(u);
 	}

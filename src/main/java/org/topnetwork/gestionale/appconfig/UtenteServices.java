@@ -37,9 +37,7 @@ public class UtenteServices {
 	@Path("lista")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String listaUtenti() {
-		List<Utente> utenti = JpaDaoFactory.getDaoFactory().queryUtenti();
-//		Gson gson = new Gson();
-//		return gson.toJson(utenti);
+		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
 		ObjectMapper om = new ObjectMapper();
 		try {
 			return om.writeValueAsString(utenti);
@@ -57,15 +55,14 @@ public class UtenteServices {
 	}
 	
 	
-//	@POST
-//	@Path("login")
-//	public Response login(String email,String passw) throws URISyntaxException {
-//		HttpSession session = httpRequest.getSession();
-//			Utente u = JpaUtenteDao.getInstance().login(email, passw);
-//			session.setAttribute("utenteloggato", u);
-//			if(u.isRuolo()) return Response.created(new URI(null)).build();
-//			return Response.created(new URI(null)).build();
-//	}
+	@POST
+	@Path("login")
+	public Response login(String email,String passw) throws URISyntaxException {
+		HttpSession session = httpRequest.getSession();
+			Utente u = JpaUtenteDao.getInstance().login(email, passw);
+			session.setAttribute("utenteloggato", u);
+			return Response.created(new URI("api/utente/"+u.getIdUtente())).build();
+	}
 	
 	
 	

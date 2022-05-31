@@ -1,26 +1,8 @@
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.spi.Configurator;
-import org.apache.tomcat.util.json.JSONParser;
-import org.glassfish.jersey.*;
-import org.topnetwork.gestionale.appconfig.UtenteServices;
-import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
-import org.topnetwork.gestionale.model.Applicazione;
+import static org.topnetwork.gestionale.utility.Utils.utenteLoggato;
+
 import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
-import org.topnetwork.gestionale.utility.Utils;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-
-import static org.topnetwork.gestionale.utility.Utils.*;
-
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Test {

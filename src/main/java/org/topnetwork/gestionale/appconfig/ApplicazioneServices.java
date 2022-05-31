@@ -1,9 +1,13 @@
 package org.topnetwork.gestionale.appconfig;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +18,7 @@ import org.json.JSONObject;
 import org.topnetwork.gestionale.dao.jpa.JpaApplicazioneDao;
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.model.Applicazione;
+import org.topnetwork.gestionale.model.Utente;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,10 +42,20 @@ public class ApplicazioneServices {
 		}
 	}
 	
+	@POST
+	@Path("add")
+	public Response add(Applicazione a) throws URISyntaxException {
+		JpaDaoFactory.getDaoFactory().save(a);
+		return Response.created(new URI("api/applicazione/" + a.getIdApplicazione())).build();
+	}
 	
-	
-	
-	
+	@DELETE
+	@Path("delete")
+	public Response delete(Applicazione a) throws URISyntaxException {
+		JpaDaoFactory.getDaoFactory().logicDelete(a);
+		return Response.created(new URI("api/applicazione/" + a.getIdApplicazione())).build();
+		
+	}
 	
 	
 
