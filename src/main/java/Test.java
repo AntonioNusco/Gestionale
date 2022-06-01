@@ -1,6 +1,7 @@
 
 import static org.topnetwork.gestionale.utility.Utils.utenteLoggato;
 
+import org.topnetwork.gestionale.dao.jpa.JpaApplicazioneDao;
 import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
 
@@ -66,7 +67,7 @@ public class Test {
 		
 		
 		
-		
+		System.out.println(JpaApplicazioneDao.getInstance().getFromId(1));
 
 		
 		

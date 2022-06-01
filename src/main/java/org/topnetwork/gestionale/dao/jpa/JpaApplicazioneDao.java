@@ -31,5 +31,19 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 ////		System.out.print("" + queryList.toString());
 //		return queryList;
 	}
+	
+	public Applicazione getFromId(int idApplicazione) {
+		return JpaDaoFactory.getConnection().find(Applicazione.class, idApplicazione);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
