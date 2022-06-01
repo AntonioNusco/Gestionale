@@ -37,7 +37,6 @@ public class JpaDaoFactory extends DaoFactory {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/progettotopnetwork","postgres", "root");
-//			System.out.println("Successfully Connected.");
 			stmt = c.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,13 +103,15 @@ public class JpaDaoFactory extends DaoFactory {
 		int id = 0;
 		String s = "";
 		if (e instanceof Applicazione) {
-			id = ((Applicazione) e).getIdApplicazione();
+			Applicazione a = (Applicazione) e;
+ 			id = a.getIdApplicazione();
 			s = "Applicazione";
 		} else if (e instanceof Rescan) {
 			id = ((Rescan) e).getIdRescan();
 			s = "Rescan";
 		} else
 			return false;
+		System.out.println(s + " " +id);
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("update " + s + " set exist = false where id = :id");
 		q.setParameter("id", id);

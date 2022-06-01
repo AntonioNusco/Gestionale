@@ -11,6 +11,7 @@ public interface UtenteDao {
 	public boolean registrazione(Utente u);
 	boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email);
 	List<Utente> getAll();
+	Utente getFromId(int idUtente);
 	
 	
 }

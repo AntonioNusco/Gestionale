@@ -2,6 +2,8 @@
 import static org.topnetwork.gestionale.utility.Utils.utenteLoggato;
 
 import org.topnetwork.gestionale.dao.jpa.JpaApplicazioneDao;
+import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
+import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Rescan;
 import org.topnetwork.gestionale.model.Utente;
 
@@ -64,11 +66,13 @@ public class Test {
 	
 		
 //		qualcosa();
-		
-		
-		
-		System.out.println(JpaApplicazioneDao.getInstance().getFromId(1));
 
+		
+//		Applicazione a2 = new Applicazione();
+	//	a2 = JpaApplicazioneDao.getInstance().getFromId(159);
+		
+		//System.out.println(JpaApplicazioneDao.getInstance().logicDelete(a));
+	//	JpaApplicazioneDao.getInstance().logicResave(a2);
 		
 		
 		

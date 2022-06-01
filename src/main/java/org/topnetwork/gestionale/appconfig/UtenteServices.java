@@ -1,13 +1,8 @@
 package org.topnetwork.gestionale.appconfig;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
-import static org.topnetwork.gestionale.utility.Utils.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,7 +11,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.dao.jpa.JpaUtenteDao;
@@ -24,7 +18,6 @@ import org.topnetwork.gestionale.model.Utente;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 @Path("utente")
 public class UtenteServices {
@@ -42,6 +35,14 @@ public class UtenteServices {
 		ObjectMapper om = new ObjectMapper();	
 			return om.writeValueAsString(utenti);
 	}
+	
+	@GET
+	@Path("{idUtente}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getFromId(@PathParam("idUtente")int idUtente) throws JsonProcessingException {
+		ObjectMapper om = new ObjectMapper();
+		return om.writeValueAsString(JpaUtenteDao.getInstance().getFromId(idUtente));
+	}
 		
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -50,6 +51,8 @@ public class UtenteServices {
 		JpaDaoFactory.getDaoFactory().save(u);
 		return u;
 	}
+	
+	
 	
 //	
 //	@POST

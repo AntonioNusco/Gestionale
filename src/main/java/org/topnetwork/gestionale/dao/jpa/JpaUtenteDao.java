@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import org.topnetwork.gestionale.dao.DaoFactory;
 import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
+import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Utente;
 
 public class JpaUtenteDao implements UtenteDao {
@@ -51,5 +52,12 @@ public class JpaUtenteDao implements UtenteDao {
 	public List<Utente> getAll() {
 		return JpaDaoFactory.getConnection().createQuery("Select u from Utente u").getResultList();
 	}
+	
+	@Override
+	public Utente getFromId(int idUtente) {
+		return JpaDaoFactory.getConnection().find(Utente.class, idUtente);
+	}
 
+	
+	
 }
