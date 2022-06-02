@@ -9,7 +9,7 @@ public class AppConfig extends ResourceConfig{
 	
 	
 	public AppConfig() {
-		packages("org.topnetwork.gestionale.appconfig");
+		packages("org.topnetwork.gestionale.appconfig.api");
 	}
 
 	
