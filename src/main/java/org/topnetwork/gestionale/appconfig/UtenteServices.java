@@ -45,6 +45,7 @@ public class UtenteServices {
 	}
 		
 	@POST
+	@Path("add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Utente add(Utente u) {

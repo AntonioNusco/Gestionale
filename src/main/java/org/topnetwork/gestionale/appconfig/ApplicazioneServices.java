@@ -27,17 +27,17 @@ public class ApplicazioneServices {
 	public String listaApplicazioni() throws JsonProcessingException {
 		List<Applicazione> applicazioni = JpaApplicazioneDao.getInstance().getAll();
 		ObjectMapper om = new ObjectMapper();
-			return om.writeValueAsString(applicazioni);
+		return om.writeValueAsString(applicazioni);
 	}
-	
+
 	@GET
 	@Path("{idApplicazione}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getFromId(@PathParam("idApplicazione")int idApplicazione) throws JsonProcessingException {
+	public String getFromId(@PathParam("idApplicazione") int idApplicazione) throws JsonProcessingException {
 		ObjectMapper om = new ObjectMapper();
 		return om.writeValueAsString(JpaApplicazioneDao.getInstance().getFromId(idApplicazione));
 	}
-		
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -45,16 +45,33 @@ public class ApplicazioneServices {
 		JpaDaoFactory.getDaoFactory().save(a);
 		return a;
 	}
-	
+
 	@PUT
-	@Path("{idApplicazione}")
+	@Path("delete/{idApplicazione}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String delete(Applicazione a) throws JsonProcessingException {
+	public String delete(@PathParam("idApplicazione") int idApplicazione) throws JsonProcessingException {
 		ObjectMapper om = new ObjectMapper();
-		return om.writeValueAsString(JpaApplicazioneDao.getInstance().logicDelete(a));
-	} 
-	
-	
+		return om.writeValueAsString(JpaApplicazioneDao.getInstance().logicDelete(idApplicazione));
+	}
 
+	@GET
+	@Path("deletedapp")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String showDeletedApp() throws JsonProcessingException {
+		List<Applicazione> deletedApp = JpaApplicazioneDao.getInstance().getDeletedApplication();
+		ObjectMapper om = new ObjectMapper();
+		return om.writeValueAsString(deletedApp);
+	}
+
+	@PUT
+	@Path("recovery/{idApplicazione}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String recoveryApp(@PathParam("idApplicazione") int idApplicazione) throws JsonProcessingException {
+		ObjectMapper om = new ObjectMapper();
+		return om.writeValueAsString(JpaApplicazioneDao.getInstance().logicResave(idApplicazione));
+	}
+
+	
 }

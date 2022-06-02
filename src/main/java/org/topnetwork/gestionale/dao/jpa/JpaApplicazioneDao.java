@@ -28,11 +28,11 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 	}
 	
 	@Override
-	public boolean logicDelete(Applicazione a) {
+	public boolean logicDelete(int idApplicazione) {//passare id perchè non lo prende così
 	
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("update Applicazione set exist = false where id = :id");
-		q.setParameter("id", a.getIdApplicazione());
+		q.setParameter("id", idApplicazione);
 		EntityTransaction et = em.getTransaction();
 		try {
 			et.begin();
@@ -46,11 +46,10 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 	}
 	
 	@Override
-	public boolean logicResave(Applicazione a) {
-		
+	public boolean logicResave(int idApplicazione) {
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("update Applicazione set exist = true where id = :id");
-		q.setParameter("id", a.getIdApplicazione());
+		q.setParameter("id", idApplicazione);
 		EntityTransaction et = em.getTransaction();
 		try {
 			et.begin();
@@ -68,7 +67,10 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 		return JpaDaoFactory.getConnection().find(Applicazione.class, idApplicazione);
 	}
 	
-	
+	@Override
+	public List<Applicazione> getDeletedApplication(){
+		return  JpaDaoFactory.getConnection().createQuery("Select a from Applicazione a where exist = false").getResultList();
+	}
 	
 	
 	

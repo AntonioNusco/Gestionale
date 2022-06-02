@@ -9,7 +9,8 @@ public interface ApplicazioneDao {
 
 	List<Applicazione> getAll();
 	public Applicazione getFromId(int idApplicazione);
-	boolean logicResave(Applicazione a);
-	boolean logicDelete(Applicazione a);
+	boolean logicResave(int idApplicazione);
+	boolean logicDelete(int idApplicazione);
+	List<Applicazione> getDeletedApplication();
 
 }
