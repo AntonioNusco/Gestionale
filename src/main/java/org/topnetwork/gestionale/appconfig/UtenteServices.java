@@ -3,6 +3,7 @@ package org.topnetwork.gestionale.appconfig;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.topnetwork.gestionale.dao.jpa.JpaDaoFactory;
 import org.topnetwork.gestionale.dao.jpa.JpaUtenteDao;
@@ -54,17 +56,37 @@ public class UtenteServices {
 	}
 	
 	
+	//servizio per rendere un account modificatore
 	
-//	
+	
+	
+	
+//	@POST
+//	@Path("signin")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response signin(String nome,String cognome,String email,String passw) {
+//		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
+//		for(Utente u: utenti) {
+//			if(u.getEmail().equals(email)) {
+//				return Response.status(401).build();
+//			}else JpaUtenteDao.getInstance().registrazioneVisualizzatore(nome, cognome, passw, email);  
+//		}
+//		return Response.status(200).build();
+//	}
+
+	
 //	@POST
 //	@Path("login")
-//	public Response login(String email,String passw) throws URISyntaxException {
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Utente login(String email,String passw) {
 //		HttpSession session = httpRequest.getSession();
 //			Utente u = JpaUtenteDao.getInstance().login(email, passw);
 //			session.setAttribute("utenteloggato", u);
-//			return Response.created(new URI("api/utente/"+u.getIdUtente())).build();
+//			return u;
 //	}
-//	
+
 	
 	
 	

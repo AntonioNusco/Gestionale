@@ -26,17 +26,17 @@ public class JpaUtenteDao implements UtenteDao {
 
 	@Override
 	public Utente login(String email, String password) {
-		// TODO controlli
 		EntityManager em = JpaDaoFactory.getConnection();
 		Query q = em.createQuery("Select u from utente where u.email = :email and u.password = :password");
 		q.setParameter("email", email);
 		q.setParameter("password", password);
-		try {
+//		try {
 			return (Utente) q.getSingleResult();
-		} catch (NoResultException e) {
-			return null;
-		}
+//		} catch (NoResultException e) {
+//			return null;
+//		}
 	}
+	
 
 	@Override
 	public boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email) {
