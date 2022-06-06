@@ -14,6 +14,7 @@ import org.topnetwork.gestionale.model.AppOwner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Path("appowner")
 public class AppOwnerServices {
 
 	@GET
