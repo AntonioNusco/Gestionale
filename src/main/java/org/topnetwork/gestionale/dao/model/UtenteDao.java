@@ -12,6 +12,7 @@ public interface UtenteDao {
 	boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email);
 	List<Utente> getAll();
 	Utente getFromId(int idUtente);
+	boolean updateRole(int idUtente);
 	
 	
 }

@@ -1,16 +1,15 @@
 package org.topnetwork.gestionale.dao.jpa;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
 
 import org.topnetwork.gestionale.dao.DaoFactory;
-import org.topnetwork.gestionale.dao.model.LogFileAppDao;
 import org.topnetwork.gestionale.dao.model.UtenteDao;
-import org.topnetwork.gestionale.model.Applicazione;
 import org.topnetwork.gestionale.model.Utente;
 
 public class JpaUtenteDao implements UtenteDao {
@@ -27,20 +26,20 @@ public class JpaUtenteDao implements UtenteDao {
 	@Override
 	public Utente login(String email, String password) {
 		EntityManager em = JpaDaoFactory.getConnection();
-		Query q = em.createQuery("Select u from utente where u.email = :email and u.password = :password");
+		Query q = em.createQuery("Select u from Utente u where email = :email and password = :password");
 		q.setParameter("email", email);
 		q.setParameter("password", password);
-//		try {
+		try {
 			return (Utente) q.getSingleResult();
-//		} catch (NoResultException e) {
-//			return null;
-//		}
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 
 	@Override
 	public boolean registrazioneVisualizzatore(String nome, String cognome, String password, String email) {
-		return registrazione(new Utente(nome, cognome, password, email, false));
+		return registrazione(new Utente(nome, cognome, password, email,false));
 	}
 
 	@Override
@@ -58,6 +57,24 @@ public class JpaUtenteDao implements UtenteDao {
 		return JpaDaoFactory.getConnection().find(Utente.class, idUtente);
 	}
 
+	
+	@Override
+	public boolean updateRole(int idUtente) {
+	
+		EntityManager em = JpaDaoFactory.getConnection();
+		Query q = em.createQuery("update Utente set ruolo = true where id = :id");
+		q.setParameter("id", idUtente);
+		EntityTransaction et = em.getTransaction();
+		try {
+			et.begin();
+			q.executeUpdate();
+			et.commit();
+			return true;
+		} catch (RollbackException i) {
+			i.printStackTrace();
+			return false;
+		}
+	}
 	
 	
 }
