@@ -69,6 +69,7 @@ public class JpaUtenteDao implements UtenteDao {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
+			em.close();
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();

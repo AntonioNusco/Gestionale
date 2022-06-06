@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -56,15 +57,15 @@ public class UtenteServices {
 	}
 
 	// servizio per rendere un account modificatore
-	
+
 	@PUT
 	@Path("updaterole/{idUtente}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean updateRole(@PathParam("idUtente")int idUtente) {
+	public boolean updateRole(@PathParam("idUtente") int idUtente) {
 		Utente u = JpaUtenteDao.getInstance().getFromId(idUtente);
-		if(u.isRuolo() == false) {
+		if (u.isRuolo() == false) {
 			JpaUtenteDao.getInstance().updateRole(idUtente);
-		return true;
+			return true;
 		}
 		return false;
 	}
@@ -73,15 +74,15 @@ public class UtenteServices {
 //	@Path("signin")
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public String signin(String nome,String cognome,String email,String passw) {
+//	public Utente signin(@FormParam("nome") String nome,@FormParam("cognome")String cognome,@FormParam("email")String email,@FormParam("password") String password) {
 //		Utente ut;
 //		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
 //		for(Utente u: utenti) {
 //			if(u.getEmail().equals(email)) {
 //				return null;
-//			}else JpaUtenteDao.getInstance().registrazioneVisualizzatore(nome, cognome, passw, email);  
+//			}else JpaUtenteDao.getInstance().registrazioneVisualizzatore(nome, cognome, password, email);  
 //		}
-//		return ut = new Utente(nome, cognome, passw, email,false);
+//		return ut = new Utente(nome, cognome, password, email,false);
 //	}
 
 	@POST
@@ -94,11 +95,21 @@ public class UtenteServices {
 		session.setAttribute("utenteloggato", u);
 		return u;
 	}
-	
-	
-	
-	
-	
+
+	@POST
+	@Path("signup")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Utente signup(Utente u) {
+		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
+		for (Utente ut : utenti) {
+			if (u.getEmail().equalsIgnoreCase(ut.getEmail())) {
+				return null;
+			}
+		}
+		JpaUtenteDao.getInstance().registrazione(u);
+		return u;
+	}
 	
 	
 	

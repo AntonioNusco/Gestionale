@@ -38,6 +38,7 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
+			em.close();
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();
@@ -55,6 +56,7 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 			et.begin();
 			q.executeUpdate();
 			et.commit();
+			em.close();
 			return true;
 		} catch (RollbackException i) {
 			i.printStackTrace();

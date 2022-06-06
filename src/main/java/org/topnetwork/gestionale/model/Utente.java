@@ -19,12 +19,14 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.ToString;
 
 @Setter
 @Getter 
 @NoArgsConstructor
+@EqualsAndHashCode
 
 
 @Entity
