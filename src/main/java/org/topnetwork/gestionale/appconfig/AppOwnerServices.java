@@ -34,7 +34,4 @@ public class AppOwnerServices {
 		return om.writeValueAsString(JpaAppOwnerDao.getInstance().getFromId(idAppOwner));
 	}
 	
-	
-	
-	
 }

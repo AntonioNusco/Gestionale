@@ -19,7 +19,7 @@ public class JpaAppOwnerDao implements AppOwnerDao {
 
 	@Override
 	public List<AppOwner> getAll() {
-		return JpaDaoFactory.getConnection().createQuery("Select a from Appowner a").getResultList();
+		return JpaDaoFactory.getConnection().createQuery("Select a from AppOwner a").getResultList();
 	}
 	
 	@Override
