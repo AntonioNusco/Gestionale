@@ -2,10 +2,12 @@ package org.topnetwork.gestionale.dao.model;
 
 import java.util.List;
 
-import org.topnetwork.gestionale.model.Applicazione;
+import org.topnetwork.gestionale.model.AppOwner;
 
 public interface AppOwnerDao {
 
-	List<AppOwnerDao> getAll();
+	List<AppOwner> getAll();
+
+	AppOwner getFromId(int idAppOwner);
 
 }
