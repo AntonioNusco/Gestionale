@@ -99,12 +99,13 @@ public class UtenteServices {
 	@POST
 	@Path("login")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Utente login(@FormParam("email") String email, @FormParam("password") String pass) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Utente login(Utente utente) {
 		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
 		for(Utente u : utenti) {
-			if(email.equalsIgnoreCase(u.getEmail()) && pass.equals(u.getPassword())) {
+			if(utente.getEmail().equals(u.getEmail()) && utente.getPassword().equals(u.getPassword())) {
 				HttpSession session = httpRequest.getSession();
-				Utente ut = JpaUtenteDao.getInstance().login(email, pass);
+				Utente ut = JpaUtenteDao.getInstance().login(utente.getEmail(), utente.getPassword());
 				session.setAttribute("utenteloggato", ut);
 				return ut;
 			}
