@@ -85,7 +85,7 @@ public class UtenteServices {
 //		return ut = new Utente(nome, cognome, password, email,false);
 //	}
 
-	@POST
+	/*@POST
 	@Path("login/{email}/{password}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -94,6 +94,22 @@ public class UtenteServices {
 		Utente u = JpaUtenteDao.getInstance().login(email, passw);
 		session.setAttribute("utenteloggato", u);
 		return u;
+	}*/
+	
+	@POST
+	@Path("login")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Utente login(@FormParam("email") String email, @FormParam("password") String pass) {
+		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
+		for(Utente u : utenti) {
+			if(email.equalsIgnoreCase(u.getEmail()) && pass.equals(u.getPassword())) {
+				HttpSession session = httpRequest.getSession();
+				Utente ut = JpaUtenteDao.getInstance().login(email, pass);
+				session.setAttribute("utenteloggato", ut);
+				return ut;
+			}
+		}
+		return null;
 	}
 
 	@POST
