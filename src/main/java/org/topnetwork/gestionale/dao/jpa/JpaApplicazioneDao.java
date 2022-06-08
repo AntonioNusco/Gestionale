@@ -24,7 +24,7 @@ public class JpaApplicazioneDao implements ApplicazioneDao {
 
 	@Override
 	public List<Applicazione> getAll() {
-		return  JpaDaoFactory.getConnection().createQuery("Select a from Applicazione a").getResultList();
+		return  JpaDaoFactory.getConnection().createQuery("Select a from Applicazione a where exist = true").getResultList();
 	}
 	
 	@Override

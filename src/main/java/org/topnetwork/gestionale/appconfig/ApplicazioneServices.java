@@ -39,6 +39,7 @@ public class ApplicazioneServices {
 	}
 
 	@POST
+	@Path("aggiunta")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Applicazione add(Applicazione a) {
