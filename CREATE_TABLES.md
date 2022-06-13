@@ -140,6 +140,8 @@ create table if not exists "logfileapp" (
   foreign key(fk_idapp) references applicazione(idapplicazione)
 );
 
+
+----------------------OLD--------------------------
 create table if not exists "logfilerescan" (
   "idlogrescan"serial primary key,
   "data" date not null,
@@ -147,6 +149,27 @@ create table if not exists "logfilerescan" (
   "nuovovalore" text not null,
   "fk_idutente" int not null,
   "fk_idrescan" int not null,
+  foreign key(fk_idutente) references utente(idutente),
+  foreign key(fk_idrescan) references rescan(idrescan)
+);
+----------------------OLD----------------------------
+
+create table if not exists "logfilerescan" (
+  "idlogrescan"serial primary key,
+  "data" date not null,
+  "fk_idutente" int not null,
+  "fk_idrescan" int not null,
+   "nrescan" int not null,
+    "ongoing" boolean,
+    "archive" boolean,
+    "rkd" date,
+    "afpe" text,
+    "newob" int,
+    "py" int,
+    "ytd" int,
+    "yoyrolling" text,
+    "last_rescan" text,
+    "idPreUpdate" int,
   foreign key(fk_idutente) references utente(idutente),
   foreign key(fk_idrescan) references rescan(idrescan)
 );
@@ -1433,6 +1456,27 @@ create table if not exists "logfileapp" (
   foreign key(fk_idapp) references applicazione(idapplicazione)
 );
 
+-----------------------------------------AGGIORNAMENTO LOGFILRESCAN-----------------------------------------
+drop table logfilerescan;
 
+create table if not exists "logfilerescan" (
+  "idlogrescan"serial primary key,
+  "data" date not null,
+  "fk_idutente" int not null,
+  "fk_idrescan" int not null,
+   "nrescan" int not null,
+    "ongoing" boolean,
+    "archive" boolean,
+    "rkd" date,
+    "afpe" text,
+    "newob" int,
+    "py" int,
+    "ytd" int,
+    "yoyrolling" text,
+    "last_rescan" text,
+    "idPreUpdate" int,
+  foreign key(fk_idutente) references utente(idutente),
+  foreign key(fk_idrescan) references rescan(idrescan)
+);
 
 
