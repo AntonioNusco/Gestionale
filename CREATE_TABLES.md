@@ -82,6 +82,7 @@ create table if not exists "utente" (
   "ruolo" boolean
 );
 
+-----------------------------OLD----------------------------------
 create table if not exists "logfileapp" (
   "idlogapp" serial primary key,
   "data" date not null,
@@ -89,6 +90,52 @@ create table if not exists "logfileapp" (
   "nuovovalore" text not null,
   "fk_idutente" int not null,
   "fk_idapp" int not null,
+  foreign key(fk_idutente) references utente(idutente),
+  foreign key(fk_idapp) references applicazione(idapplicazione)
+);
+-----------------------------OLD-----------------------------------
+
+ create table if not exists "logfileapp" (
+  "idlogapp" serial primary key,
+  "data" date not null,
+  "fk_idutente" int not null,
+  "fk_idapp" int not null,
+    "nome_app" text not null,
+    "apmcode" text,
+    "owneronboarding" text,
+    "ownerafp" text,
+    "gdsunit" text,
+    "tecnologia" text,
+    "servermanager" text,
+    "solocms" text,
+    "nodoconsole" int,
+    "macchina" text,
+    "noteonboarding" text,
+    "fase" text,
+    "afpstatus" text,
+    "pubblicatodashboard" text,
+    "noteappowner" text,
+    "avganalysistime" numeric(5, 2),
+    "jiraautomationactivation" text,
+    "repoavailability" text,
+    "automationstatus" text,
+    "automationenablingdate" date,
+    "automationnotes" text,
+    "greenitindex" text,
+    "insertedincastprogram" text,
+    "stakeholderengagement" text,
+    "launchingmeetingdatagatheringstarting" timestamp,
+    "stakeholderbrief" text,
+    "onboardingkitdelivery" text,
+    "onboardingkitclosing" text,
+    "sourcecodefinaldelivery" text,
+    "primarestitution" text,
+    "done" boolean,
+    "linkconfluence" text,
+    "businesscriticality" text,
+    "devmethodology" text,
+    "provider" text,
+    "idPreUpdate" int,
   foreign key(fk_idutente) references utente(idutente),
   foreign key(fk_idapp) references applicazione(idapplicazione)
 );
@@ -1336,6 +1383,55 @@ ALTER TABLE logfileapp ALTER COLUMN valoreprecedente DROP not null;
 update applicazione set done = true;
 
 update rescan set ongoing = false;
+
+
+-----------------------------------------AGGIORNAMENTO LOGFILEAPP-----------------------------------------
+drop table logfileapp;
+
+create table if not exists "logfileapp" (
+  "idlogapp" serial primary key,
+  "data" date not null,
+  "fk_idutente" int not null,
+  "fk_idapp" int not null,
+    "nome_app" text not null,
+    "apmcode" text,
+    "owneronboarding" text,
+    "ownerafp" text,
+    "gdsunit" text,
+    "tecnologia" text,
+    "servermanager" text,
+    "solocms" text,
+    "nodoconsole" int,
+    "macchina" text,
+    "noteonboarding" text,
+    "fase" text,
+    "afpstatus" text,
+    "pubblicatodashboard" text,
+    "noteappowner" text,
+    "avganalysistime" numeric(5, 2),
+    "jiraautomationactivation" text,
+    "repoavailability" text,
+    "automationstatus" text,
+    "automationenablingdate" date,
+    "automationnotes" text,
+    "greenitindex" text,
+    "insertedincastprogram" text,
+    "stakeholderengagement" text,
+    "launchingmeetingdatagatheringstarting" timestamp,
+    "stakeholderbrief" text,
+    "onboardingkitdelivery" text,
+    "onboardingkitclosing" text,
+    "sourcecodefinaldelivery" text,
+    "primarestitution" text,
+    "done" boolean,
+    "linkconfluence" text,
+    "businesscriticality" text,
+    "devmethodology" text,
+    "provider" text,
+    "idPreUpdate" int,
+  foreign key(fk_idutente) references utente(idutente),
+  foreign key(fk_idapp) references applicazione(idapplicazione)
+);
 
 
 
