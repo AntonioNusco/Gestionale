@@ -33,6 +33,8 @@ public abstract class DaoFactory {
 	public abstract <E> boolean logicDelete(E e);
 
 	public abstract <E> boolean update(E e, String nomeColonna, E nuovoValore);
+
+	public abstract boolean modifica(Utente u);
 	
 //	public abstract <E> List<E> queryList(E e);
 	

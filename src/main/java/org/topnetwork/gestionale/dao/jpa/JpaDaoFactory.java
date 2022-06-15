@@ -257,7 +257,13 @@ public class JpaDaoFactory extends DaoFactory {
 //		return queryList;
 //	}
 	
-	
+
+	public boolean modifica(Utente u) {
+		EntityManager em = JpaDaoFactory.getConnection();
+			em.persist(u);
+			em.close();
+			return true;
+	}
 	
 	
 	

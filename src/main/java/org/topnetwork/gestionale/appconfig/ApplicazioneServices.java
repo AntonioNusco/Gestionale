@@ -39,7 +39,7 @@ public class ApplicazioneServices {
 	}
 
 	@POST
-	@Path("aggiunta")
+	@Path("add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Applicazione add(Applicazione a) {

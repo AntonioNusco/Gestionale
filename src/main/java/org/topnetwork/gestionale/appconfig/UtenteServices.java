@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -70,31 +69,6 @@ public class UtenteServices {
 		return false;
 	}
 
-//	@POST
-//	@Path("signin")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Utente signin(@FormParam("nome") String nome,@FormParam("cognome")String cognome,@FormParam("email")String email,@FormParam("password") String password) {
-//		Utente ut;
-//		List<Utente> utenti = JpaUtenteDao.getInstance().getAll();
-//		for(Utente u: utenti) {
-//			if(u.getEmail().equals(email)) {
-//				return null;
-//			}else JpaUtenteDao.getInstance().registrazioneVisualizzatore(nome, cognome, password, email);  
-//		}
-//		return ut = new Utente(nome, cognome, password, email,false);
-//	}
-
-	/*@POST
-	@Path("login/{email}/{password}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Utente login(@PathParam("email") String email, @PathParam("password") String passw) {
-		HttpSession session = httpRequest.getSession();
-		Utente u = JpaUtenteDao.getInstance().login(email, passw);
-		session.setAttribute("utenteloggato", u);
-		return u;
-	}*/
 	
 	@POST
 	@Path("login")
@@ -129,7 +103,13 @@ public class UtenteServices {
 	}
 	
 	
-	
+//	@PUT
+//	@Path("modifica")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public boolean modifica(Utente u) {
+//		return JpaDaoFactory.getDaoFactory().modifica(u);
+//	}
 	
 	
 	
