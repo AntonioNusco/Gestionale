@@ -30,14 +30,30 @@ public class LogFileRescan implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idLogRescan;
-	@Column(name="valorePrecedente")
-	private String valorePrecedente;
-	@Column(name="nuovoValore")
-	private String nuovoValore;
 	@Column(name="data")
 	private Date data;
 	@Column
-	private String action;
+	private int nRescan;
+	@Column
+	private boolean ongoing;
+	@Column
+	private boolean archive;
+	@Column
+	private Integer newOb;
+	@Column
+	private Integer py;
+	@Column
+	private Integer ytd;
+	@Column
+	private String afpe;
+	@Column
+	private String yoyRolling;
+	@Column
+	private String last_Rescan;
+	@Column
+	private Date rkd;
+	@Column
+	private int idPreUpdate;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_idUtente", referencedColumnName = "idUtente")
 	@JsonBackReference
@@ -46,14 +62,23 @@ public class LogFileRescan implements Serializable{
 	@JoinColumn(name = "FK_idRescan", referencedColumnName = "idRescan")
 	@JsonBackReference
 	private Rescan rescan;
-	
-	public LogFileRescan(Integer idLogRescan, String valorePrecedente, String nuovoValore, Date data) {
-		super();
-		this.idLogRescan = idLogRescan;
-		this.valorePrecedente = valorePrecedente;
-		this.nuovoValore = nuovoValore;
+	public LogFileRescan(Date data, int nRescan, boolean ongoing, boolean archive, Integer newOb, Integer py,
+			Integer ytd, String afpe, String yoyRolling, String last_Rescan, Date rkd, int idPreUpdate) {
 		this.data = data;
+		this.nRescan = nRescan;
+		this.ongoing = ongoing;
+		this.archive = archive;
+		this.newOb = newOb;
+		this.py = py;
+		this.ytd = ytd;
+		this.afpe = afpe;
+		this.yoyRolling = yoyRolling;
+		this.last_Rescan = last_Rescan;
+		this.rkd = rkd;
+		this.idPreUpdate = idPreUpdate;
 	}
+	
+	
 	
 	
 }
